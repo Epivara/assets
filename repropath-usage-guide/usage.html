@@ -10,9 +10,10 @@
 <body>
 <div class="layout">
   <aside class="sidebar">
-    <a class="brand" href="index.html">ReproPath Usage Guide</a>
+    <div class="brand">ReproPath Usage Guide</div>
     <nav>
       <ul>
+        <li><a class="section" href="index.html">Table of Contents</a></li>
         <li><a class="section" href="setup.html">Setup</a>
           <ul>
             <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
@@ -50,52 +51,51 @@
     <p>A project is a collection of slide images with data saved for each slide. For any real work, you'll
        want to create a project to save any annotations that are made. This is important if you want to
        revisit the work or keep a record.</p>
-    <p>Create a project by navigating to the left sidebar. Have the <em>Project</em> tab open, and press
-       <em>Create project...</em> to bring up a prompt. Select any empty folder or create a new one, and press
-       <em>Open</em>. This will not actually create a project until you add an image, so let's add one.</p>
+    <p>Create a project by navigating to the left sidebar. Have the <strong>Project</strong> tab open, and press
+       <strong>Create project...</strong> to bring up a prompt. Select any empty folder or create a new one, and press
+       <strong>Open</strong>. This will not actually create a project until you add an image, so let's add one.</p>
     <p><strong>Local:</strong><br>
-       In the <em>Project</em> tab, press <em>Add images...</em> to open a prompt. QuPath will ask you to select
+       In the <strong>Project</strong> tab, press <strong>Add images...</strong> to open a prompt. QuPath will ask you to select
        images on your computer to add to the project.</p>
     <p><strong>Cloud:</strong><br>
-       In the menu bar, navigate to <em>Extensions</em> &rarr; <em>ReproPath</em> &rarr; <em>Open from Cloud</em>.
+       In the menu bar, navigate to <strong>Extensions</strong> &rarr; <strong>ReproPath</strong> &rarr; <strong>Open from Cloud</strong>.
        If you've correctly set up the connection, you should see a list of slides.</p>
     <img src="assets/open_from_cloud_menu.png" alt="Open from Cloud menu">
-    <p>Search for any slide you want, select one or more slides, and press <em>Add to Project</em>.</p>
+    <p>Search for any slide you want, select one or more slides, and press <strong>Add to Project</strong>.</p>
     <p class="note"><em>Note: QuPath allows you to add the same image to a project multiple times. Each duplicate
        will store its own data, so be cautious of adding duplicates unless intentional.</em></p>
     <p>Once you've created a project, there is no need to save the project; QuPath updates the project
        automatically, you only need to save changes to images.</p>
-    <p>To revisit a project: inside the <em>Project</em> tab, press <em>Open project...</em>, navigate to the
+    <p>To revisit a project: inside the <strong>Project</strong> tab, press <strong>Open project...</strong>, navigate to the
        folder where you saved your project, and open the <code>project.qpproj</code> file.</p>
 
     <h3 id="the-extension-menu">The extension menu</h3>
-    <p>Open the ReproPath menu by navigating to the menu bar and selecting <em>Extensions</em> &rarr;
-       <em>ReproPath</em> &rarr; <em>Open ReproPath</em>.</p>
+    <p>Open the ReproPath menu by navigating to the menu bar and selecting <strong>Extensions</strong> &rarr;
+       <strong>ReproPath</strong> &rarr; <strong>Open ReproPath</strong>.</p>
     <img src="assets/repropath_menu_image.png" alt="ReproPath menu">
-    <p>There are two tabs, the <em>Image</em> tab and the <em>Project</em> tab. The <em>Image</em> tab is used to
-       work on a specific image. The <em>Project</em> tab allows you to run multi-image workflows. For now,
-       we'll work with the <em>Image</em> tab.</p>
-    <p>Under <em>ROI Defaults</em>, you can change the size of the default ROI (region of interest) placed down
+    <p>There are two tabs, the <strong>Image</strong> tab and the <strong>Project</strong> tab. The <strong>Image</strong> tab is used to
+       work on a specific image. The <strong>Project</strong> tab allows you to run multi-image workflows. For now,
+       we'll work with the <strong>Image</strong> tab.</p>
+    <p>Under <strong>ROI Defaults</strong>, you can change the size of the default ROI (region of interest) placed down
        when you click with the ReproPath ROI tool.</p>
-    <p>Under <em>Module</em>, you can select which module you want to run on your selected ROIs.</p>
-    <p><em>Segmentation</em> will run model predictions on your selected ROIs, displaying generated annotations
+    <p>Under <strong>Module</strong>, you can select which module you want to run on your selected ROIs.</p>
+    <p><strong>Segmentation</strong> will run model predictions on your selected ROIs, displaying generated annotations
        in the viewer once complete.</p>
-    <p><em>Metrics</em> will compute module-specific metrics using the annotations in your selected ROIs. Once
+    <p><strong>Metrics</strong> will compute module-specific metrics using the annotations in your selected ROIs. Once
        complete, they will be displayed in a table within the ReproPath menu and saved internally for later
        export. <em>Note that metrics can only be saved for one module at a time.</em></p>
-    <p>Pressing <em>Export</em> will export any computed metrics to an Excel file for further analysis.</p>
+    <p>Pressing <strong>Export</strong> will export any computed metrics to an Excel file for further analysis.</p>
 
     <h3 id="running-a-module">Running a module</h3>
-    <p>In the tool bar, select the ReproPath ROI tool.</p>
-    <img src="assets/roi_tool.png" alt="ReproPath ROI tool">
+    <p>In the tool bar, select the ReproPath ROI tool <img class="inline-icon" src="assets/roi_tool.png" alt="ReproPath ROI tool">.</p>
     <p>With the tool active, click anywhere in the viewer to place a default-sized ROI, or hold and drag to
        place a custom-sized ROI.</p>
-    <p>Select an ROI by double-clicking it, or Ctrl+Click (Cmd+Click on Mac) to select multiple ROIs.</p>
+    <p>Select an ROI by double-clicking it, or <kbd>Ctrl</kbd>+Click (<kbd>Cmd</kbd>+Click on Mac) to select multiple ROIs.</p>
     <p>A selected object will be yellow with default QuPath settings.</p>
     <img src="assets/roi_selected.png" alt="Selected ROI">
     <p>With one or more ROIs selected, let's try segmenting.</p>
-    <p>In the ReproPath menu, have a module selected under <em>Module</em>, and press <em>Run</em> under the
-       <em>Segmentation</em> section. After waiting for a bit, segmentations will be returned to the viewer.
+    <p>In the ReproPath menu, have a module selected under <strong>Module</strong>, and press <strong>Run</strong> under the
+       <strong>Segmentation</strong> section. After waiting for a bit, segmentations will be returned to the viewer.
        Different modules take different times to process.</p>
     <img src="assets/roi_segmented.png" alt="Segmented ROI">
     <p>QuPath stores annotations in two different forms: as annotations or detections.</p>
@@ -103,52 +103,52 @@
        space-efficient. They are optimized for many to exist, and as such are uneditable.</p>
     <p>Segmentation results are returned as detections</p>
     <p>You are given the optional opportunity to edit any segmentations if desired. To do so, select one or
-       more detection objects, right click, and press <em>Convert to Annotation (for editing)</em>.</p>
+       more detection objects, right click, and press <strong>Convert to Annotation (for editing)</strong>.</p>
     <p>The recommended way to edit annotations is to:</p>
     <ul>
       <li>Delete erroneous objects.</li>
       <li>Change object classes by selecting an object, right clicking, then choosing a class under
-          <em>Set classification</em>.</li>
+          <strong>Set classification</strong>.</li>
       <li>Use the Brush tool to adjust the mask of a selected annotation.</li>
       <li>Use the Polygon or Brush tools to create new objects.</li>
     </ul>
     <p>If the annotations are to your liking, select one or more ROIs with annotations, and press
-       <em>Metrics</em> &rarr; <em>Run</em> in the ReproPath menu to compute metrics.</p>
+       <strong>Metrics</strong> &rarr; <strong>Run</strong> in the ReproPath menu to compute metrics.</p>
     <img src="assets/roi_metrics.png" alt="ROI metrics">
     <p>When finished, a table will be displayed with computed metrics. For understanding what each metric
        means and when it is computed, consult the <a href="glossary.html">glossary</a>.</p>
 
     <h3 id="running-a-project-workflow">Running a project workflow</h3>
-    <p>For actual use, the <em>Project</em> tab in the ReproPath menu is probably more useful.</p>
+    <p>For actual use, the <strong>Project</strong> tab in the ReproPath menu is probably more useful.</p>
     <p>To start, create ROIs across multiple slide images. Open each slide image in the viewer create ROIs,
        and make sure results are saved.</p>
-    <p>In the <em>Project</em> tab, press <em>Save Project &amp; Refresh</em> to update the display. If you've
+    <p>In the <strong>Project</strong> tab, press <strong>Save Project &amp; Refresh</strong> to update the display. If you've
        correctly created ROIs, it should look something like this:</p>
     <img src="assets/project_rois.png" alt="Project ROIs list">
     <p>In this menu, you'll find every slide image in your project listed with processing info.</p>
     <p>Select the slide images you want to operate on.</p>
     <p>Before you run processing, you may want to group images first. To do this, select images, then press
-       <em>Assign Group</em> to set a group name.</p>
+       <strong>Assign Group</strong> to set a group name.</p>
     <p>This allows you to separate groups for metrics computation. A grouped project would look something like this:</p>
     <img src="assets/project_groups.png" alt="Grouped project">
-    <p>Now, to run, first select images and press <em>Set Module</em>. The active module for each image updates
-       the <em>Status</em>.</p>
+    <p>Now, to run, first select images and press <strong>Set Module</strong>. The active module for each image updates
+       the <strong>Status</strong>.</p>
     <img src="assets/project_modules.png" alt="Project modules set">
     <p>By adjusting the set module, you can check on metrics computation status for each image.</p>
-    <p>Now that a module is set for each image, press <em>Run</em> to process all selected images and ROIs. This
+    <p>Now that a module is set for each image, press <strong>Run</strong> to process all selected images and ROIs. This
        may take a while! The status column and loading bar update with progress.</p>
     <img src="assets/project_processed.png" alt="Project processed">
     <p>Once finished, the metrics table will be updated with your results!</p>
-    <p>In the metrics table, access the "<em>Per ...</em>" dropdown to change the granularity of the computed
+    <p>In the metrics table, access the "<strong>Per ...</strong>" dropdown to change the granularity of the computed
        metrics. You can see metrics at the group, image, and ROI levels.</p>
 
     <h3 id="exporting-results">Saving Results</h3>
     <p>Qupath allows easily saving your ROIs as images with or without the annotations.</p>
-    <p>To do so, select an ROI, then in the menu bar, choose <em>File</em> &rarr; <em>Export images</em>, then
-       choose <em>Original pixels</em> to save the actual image, or <em>Rendered RGB (with overlays)</em> to
+    <p>To do so, select an ROI, then in the menu bar, choose <strong>File</strong> &rarr; <strong>Export images</strong>, then
+       choose <strong>Original pixels</strong> to save the actual image, or <strong>Rendered RGB (with overlays)</strong> to
        export the image with annotations overlaid.</p>
-    <p>To save metrics results, use the <em>Export</em> button in the ReproPath menu. In the <em>Image</em> tab,
-       the export button will export results only for the current image. Exporting from the <em>Project</em> tab
+    <p>To save metrics results, use the <strong>Export</strong> button in the ReproPath menu. In the <strong>Image</strong> tab,
+       the export button will export results only for the current image. Exporting from the <strong>Project</strong> tab
        will export recorded metrics for all ROIs across the project.</p>
     <p>Exported metrics will be saved to an Excel file to the location you choose.</p>
 

@@ -10,9 +10,10 @@
 <body>
 <div class="layout">
   <aside class="sidebar">
-    <a class="brand" href="index.html">ReproPath Usage Guide</a>
+    <div class="brand">ReproPath Usage Guide</div>
     <nav>
       <ul>
+        <li><a class="section" href="index.html">Table of Contents</a></li>
         <li><a class="section" href="setup.html">Setup</a>
           <ul>
             <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
@@ -48,8 +49,8 @@
 
     <p class="faq-q">I can't see any ROIs or model predicted objects?</p>
     <p>You may accidentally have annotation/detection display toggled to hidden. Use the buttons in the center
-       of the tool bar to adjust object visibility. Alternatively, press A to toggle visibility for annotations,
-       and press D to toggle visibility for detections. Shift+F/F to toggle fill for annotations/detections.</p>
+       of the tool bar to adjust object visibility. Alternatively, press <kbd>A</kbd> to toggle visibility for annotations,
+       and press <kbd>D</kbd> to toggle visibility for detections. <kbd>Shift</kbd>+<kbd>F</kbd>/<kbd>F</kbd> to toggle fill for annotations/detections.</p>
     <p>The following viewer configuration is recommended:</p>
     <img src="assets/visibility_config.png" alt="Recommended visibility configuration">
 
@@ -60,9 +61,9 @@
 
     <p class="faq-q">I don't have the option to choose all classifications / the Annotations tab only shows some classes.</p>
     <p>The available class list is managed by QuPath. Any class can exist, but you only use the ones set in the
-       QuPath viewer. Navigate to the left sidebar, and find the <em>Class list</em> under the <em>Annotations</em>
-       tab. Use the <code>+</code> button to add a missing class to the list, or select a class and use the
-       <code>-</code> button to remove it (this does not delete objects of that class). For accurate metrics,
+       QuPath viewer. Navigate to the left sidebar, and find the <strong>Class list</strong> under the <strong>Annotations</strong>
+       tab. Use the <strong>+</strong> button to add a missing class to the list, or select a class and use the
+       <strong>-</strong> button to remove it (this does not delete objects of that class). For accurate metrics,
        please only use classes with the same names as those of objects predicted by the modules (they should
        color match if they are the same).</p>
 
