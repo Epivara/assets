@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epivara — Assets</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    padding: 40px 20px;
+  }
+  img.logo { width: 200px; max-width: 60vw; height: auto; margin-bottom: 28px; }
+  h1 { font-size: 1.4rem; font-weight: 600; margin: 0 0 6px; }
+  p.sub { color: #666; margin: 0 0 32px; }
+  .links { display: flex; flex-direction: column; gap: 14px; width: 320px; max-width: 90vw; }
+  .links a {
+    display: block;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #1a1a1a;
+    transition: border-color 0.15s;
+  }
+  .links a:hover { border-color: #2a5d8f; }
+  .links .title { display: block; font-weight: 600; }
+  .links .desc { display: block; font-size: 0.85rem; color: #666; margin-top: 2px; }
+  footer { margin-top: 48px; font-size: 0.8rem; color: #999; }
+</style>
+</head>
+<body>
+  <img class="logo" src="general/epivaralogo.png" alt="Epivara">
+  <h1>Epivara Assets</h1>
+  <p class="sub">Public assets and documentation.</p>
+
+  <div class="links">
+    <a href="general/">
+      <span class="title">Brand Assets</span>
+      <span class="desc">Logos and shared image assets</span>
+    </a>
+    <a href="repropath-usage-guide/">
+      <span class="title">ReproPath Usage Guide</span>
+      <span class="desc">Documentation for the ReproPath QuPath extension</span>
+    </a>
+  </div>
+
+  <footer>&copy; Epivara</footer>
+</body>
+</html>

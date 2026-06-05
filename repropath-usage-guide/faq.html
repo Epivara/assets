@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — ReproPath Usage Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">ReproPath Usage Guide</a>
+    <nav>
+      <ul>
+        <li><a class="section" href="setup.html">Setup</a>
+          <ul>
+            <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
+            <li><a href="setup.html#layout">Layout</a></li>
+            <li><a href="setup.html#installing-the-extension">Installing the extension</a></li>
+            <li><a href="setup.html#repropath-setup">ReproPath setup</a></li>
+            <li><a href="setup.html#cloud-slide-setup">Cloud Slide setup</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="usage.html">Usage</a>
+          <ul>
+            <li><a href="usage.html#making-a-project">Making a project</a></li>
+            <li><a href="usage.html#the-extension-menu">The extension menu</a></li>
+            <li><a href="usage.html#running-a-module">Running a module</a></li>
+            <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
+            <li><a href="usage.html#exporting-results">Exporting results</a></li>
+          </ul>
+        </li>
+        <li><a class="section current" href="faq.html">FAQ and other Errors</a></li>
+        <li><a class="section" href="glossary.html">Glossary</a>
+          <ul>
+            <li><a href="glossary.html#tubule-module">Tubule Module</a></li>
+            <li><a href="glossary.html#leydig-module">Leydig Module</a></li>
+            <li><a href="glossary.html#spermatogenesis-module">Spermatogenesis Module</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>FAQ and other Errors</h1>
+
+    <p class="faq-q">I can't see any ROIs or model predicted objects?</p>
+    <p>You may accidentally have annotation/detection display toggled to hidden. Use the buttons in the center
+       of the tool bar to adjust object visibility. Alternatively, press A to toggle visibility for annotations,
+       and press D to toggle visibility for detections. Shift+F/F to toggle fill for annotations/detections.</p>
+    <p>The following viewer configuration is recommended:</p>
+    <img src="assets/visibility_config.png" alt="Recommended visibility configuration">
+
+    <p class="faq-q">Request timed out</p>
+    <p>The server deployment is serverless, which means it just turns on when it receives a request, and goes
+       back to sleep otherwise. We do this to save on the bill, but it can lead to some weird state behavior.
+       If a retry fails, just delete the ROI and remake it.</p>
+
+    <p class="faq-q">I don't have the option to choose all classifications / the Annotations tab only shows some classes.</p>
+    <p>The available class list is managed by QuPath. Any class can exist, but you only use the ones set in the
+       QuPath viewer. Navigate to the left sidebar, and find the <em>Class list</em> under the <em>Annotations</em>
+       tab. Use the <code>+</code> button to add a missing class to the list, or select a class and use the
+       <code>-</code> button to remove it (this does not delete objects of that class). For accurate metrics,
+       please only use classes with the same names as those of objects predicted by the modules (they should
+       color match if they are the same).</p>
+
+    <p class="faq-q">My annotations disappeared when I ran a different module!</p>
+    <p>By design. At the moment, modules are designed to be used separately. This includes metrics as well.
+       It's recommended to do the project workflow with one module at a time.</p>
+
+    <div class="pager">
+      <a class="prev" href="usage.html"><span class="label">Previous</span>&larr; Usage</a>
+      <a class="next" href="glossary.html"><span class="label">Next</span>Glossary &rarr;</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary — ReproPath Usage Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html">ReproPath Usage Guide</a>
+    <nav>
+      <ul>
+        <li><a class="section" href="setup.html">Setup</a>
+          <ul>
+            <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
+            <li><a href="setup.html#layout">Layout</a></li>
+            <li><a href="setup.html#installing-the-extension">Installing the extension</a></li>
+            <li><a href="setup.html#repropath-setup">ReproPath setup</a></li>
+            <li><a href="setup.html#cloud-slide-setup">Cloud Slide setup</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="usage.html">Usage</a>
+          <ul>
+            <li><a href="usage.html#making-a-project">Making a project</a></li>
+            <li><a href="usage.html#the-extension-menu">The extension menu</a></li>
+            <li><a href="usage.html#running-a-module">Running a module</a></li>
+            <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
+            <li><a href="usage.html#exporting-results">Exporting results</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="faq.html">FAQ and other Errors</a></li>
+        <li><a class="section current" href="glossary.html">Glossary</a>
+          <ul>
+            <li><a href="glossary.html#tubule-module">Tubule Module</a></li>
+            <li><a href="glossary.html#leydig-module">Leydig Module</a></li>
+            <li><a href="glossary.html#spermatogenesis-module">Spermatogenesis Module</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Glossary</h1>
+    <p>This glossary provides details about each metric provided by the modules offered.
+       Pixel measurements are converted to physical units using each image's <code>um_per_px</code> scale.</p>
+
+    <h3 id="tubule-module">Tubule Module</h3>
+    <p>Tubules are first classified into intact tubules, damaged tubules (not intact), and cross-sections.
+       Cross sections are determined as intact tubules that are circular, do not touch the image edge, and
+       — for adult samples — contain a visible lumen.</p>
+    <p>Several metrics are computed only on cross-sections for consistency and accuracy.</p>
+    <ul>
+      <li><strong>count</strong>
+        <ul><li>The number of tubules objects detected in the image. Fragments classified as "not intact"
+          are excluded; both ordinary tubules and cross-sections are counted.</li></ul>
+      </li>
+      <li><strong>tubule_percent</strong>
+        <ul><li>The percentage of the image's total area that is occupied by tubules. Computed as total tubule
+          pixel area divided by the whole image area. Fragments classified as "not intact" are excluded.</li></ul>
+      </li>
+      <li><strong>diameter</strong>
+        <ul><li>The length (µm) of the minor axis of the ellipse best fitted to the tubule (the ellipse with the
+          same normalized second central moments as the tubule region — see scikit-image <code>regionprops</code>
+          <code>axis_minor_length</code>). The minor axis is used because it is the more stable estimate of true
+          tubule width on a slightly oblique cut. Only computed on tubule cross-sections.</li></ul>
+      </li>
+      <li><strong>lumen_percent</strong>
+        <ul><li>The average percentage of a tubule's area that is taken up by its lumen. For each tubule, computed
+          as lumen pixels divided by the tubule's total pixels. If the detected lumen is smaller than 3% of the
+          tubule area it is treated as no lumen (0%), to avoid counting small bright specks as a lumen. Only
+          computed across tubule cross-sections.</li></ul>
+      </li>
+      <li><strong>epithelial_thickness</strong>
+        <ul><li>The thickness (µm) of the germ-cell (epithelial) layer. Computed by taking each point along the
+          lumen edge and measuring its straight-line distance to the nearest point on the outer tubule boundary,
+          then taking the median of those per-point distances. (The median is used so a jagged lumen boundary does
+          not skew the result.) Only computed on tubule cross-sections that have exactly one connected lumen region.</li></ul>
+      </li>
+    </ul>
+
+    <h3 id="leydig-module">Leydig Module</h3>
+    <p>Leydig metrics are reported for three groups: Round Leydig cells, Spindle Leydig cells, and All Leydig
+       cells (round + spindle combined). Nuclei are detected and classified by a nuclear model; Leydig cell
+       cytoplasm for round cells are detected separately by a whole-cell model. A round nucleus is matched to a
+       cell body by checking which cell body its center falls inside.</p>
+    <p>For round Leydig cells, this glossary will refer to the cytoplasm as "whole cells" and the nuclei as nuclei.</p>
+
+    <p><strong>Round Leydig metrics:</strong></p>
+    <ul>
+      <li><strong>round_leydig_cell_area</strong>
+        <ul><li>The area (µm²) of each whole cell. A whole cell is counted whether or not a nucleus was matched
+          to it — this metric includes cells without a visible nucleus. Conversely, a round Leydig nucleus that
+          has no visible cytoplasm (no whole cell) is not considered in this metric.</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclear_area</strong>
+        <ul><li>The area (µm²) of a round Leydig cell nucleus.</li></ul>
+      </li>
+      <li><strong>round_leydig_cytoplasm_area</strong>
+        <ul><li>The area (µm²) of the cytoplasm of a round Leydig cell, computed as the cell-body area minus its
+          matched nucleus area (clamped to ≥ 0). Only computed for round nuclei that were successfully matched to
+          a cell body.</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclear_cytoplasmic_ratio</strong>
+        <ul><li>The ratio of a round Leydig nucleus's area to its matched whole cell area. I.e. the fraction of
+          the entire cell occupied by the nucleus. Note that despite the name, the denominator is the whole cell
+          area, not the cytoplasm-only area. Only computed for matched round nucleus to whole cell pairs.</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclear_eccentricity</strong>
+        <ul><li>The eccentricity of each round Leydig nucleus, measuring how elongated the nucleus is. From 0
+          (perfect circle) to 1 (long, thin ellipse). Taken from the best-fit ellipse (scikit-image
+          <code>regionprops</code> <code>eccentricity</code>).</li></ul>
+      </li>
+      <li><strong>round_leydig_cell_count</strong>
+        <ul><li>The number of round whole cell instances detected.</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclei_count</strong>
+        <ul><li>The number of round Leydig cell nuclei detected.</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclei_area_percent_patch</strong>
+        <ul><li>The percentage of the whole image area covered by round Leydig nuclei (total round nucleus pixels
+          divided by total image pixels).</li></ul>
+      </li>
+      <li><strong>round_leydig_nuclei_area_percent_interstitium</strong>
+        <ul><li>The percentage of the interstitium (image area minus tubule area) covered by round Leydig nuclei.</li></ul>
+      </li>
+      <li><strong>round_leydig_cell_area_percent_patch</strong>
+        <ul><li>The percentage of the whole image area covered by whole cells (total whole-cell pixels divided by
+          total image pixels).</li></ul>
+      </li>
+      <li><strong>round_leydig_cell_area_percent_interstitium</strong>
+        <ul><li>The percentage of the interstitium (image area minus tubule area) covered by whole cells.</li></ul>
+      </li>
+    </ul>
+
+    <p><strong>Spindle Leydig metrics:</strong></p>
+    <p>Spindle Leydig cells have essentially no visible cytoplasm to segment, so only their nuclei are measured.</p>
+    <ul>
+      <li><strong>spindle_leydig_nuclear_area</strong>
+        <ul><li>The area (µm²) of a spindle Leydig cell nucleus.</li></ul>
+      </li>
+      <li><strong>spindle_leydig_nuclear_eccentricity</strong>
+        <ul><li>The eccentricity of each spindle Leydig nucleus — how elongated it is, from 0 (a circle) to 1
+          (a long, thin ellipse).</li></ul>
+      </li>
+      <li><strong>spindle_leydig_nuclei_count</strong>
+        <ul><li>The number of spindle Leydig cell nuclei detected.</li></ul>
+      </li>
+      <li><strong>spindle_leydig_nuclei_area_percent_patch</strong>
+        <ul><li>The percentage of the whole image area covered by spindle Leydig nuclei.</li></ul>
+      </li>
+      <li><strong>spindle_leydig_nuclei_area_percent_interstitium</strong>
+        <ul><li>The percentage of the interstitium (image area minus tubule area) covered by spindle Leydig nuclei.</li></ul>
+      </li>
+    </ul>
+
+    <p><strong>All Leydig metrics:</strong></p>
+    <ul>
+      <li><strong>all_leydig_nuclear_area</strong>
+        <ul><li>The area (µm²) of a Leydig cell nucleus, round and spindle nuclei combined.</li></ul>
+      </li>
+      <li><strong>all_leydig_cell_area</strong>
+        <ul><li>The area (µm²) of a Leydig cell, round and spindle combined. For round Leydig cells the whole cell
+          area is used. For spindle Leydig cells the nuclear area is used.</li></ul>
+      </li>
+      <li><strong>all_leydig_round_spindle_ratio</strong>
+        <ul><li>The ratio of the number of round Leydig nuclei to the number of spindle Leydig nuclei. Reported as
+          empty when no spindle nuclei are present (division by zero).</li></ul>
+      </li>
+      <li><strong>all_leydig_nuclei_area_percent_patch</strong>
+        <ul><li>The percentage of the whole image area covered by all Leydig nuclei. Round + spindle nucleus pixels
+          divided by total image pixels.</li></ul>
+      </li>
+      <li><strong>all_leydig_nuclei_area_percent_interstitium</strong>
+        <ul><li>The percentage of the interstitium (image area minus tubule area) covered by all Leydig nuclei
+          (round + spindle).</li></ul>
+      </li>
+      <li><strong>all_leydig_cell_area_percent_patch</strong>
+        <ul><li>The percentage of the whole image area covered by all Leydig cells. Uses the whole cells for round
+          Leydig cells plus spindle nucleus pixels, divided by total image pixels.</li></ul>
+      </li>
+      <li><strong>all_leydig_cell_area_percent_interstitium</strong>
+        <ul><li>The percentage (%) of the interstitium (image area minus tubule area) covered by all Leydig cells,
+          using round whole cell pixels plus spindle nucleus pixels.</li></ul>
+      </li>
+    </ul>
+
+    <p><strong>Tubule context (Leydig)</strong></p>
+    <p>The Leydig module runs the tubule model for internal purposes. Metrics are reported for full disclosure.
+       These are computed the same way as the Tubule module metrics.</p>
+
+    <h3 id="spermatogenesis-module">Spermatogenesis Module</h3>
+    <p>The spermatogenesis module detects and classifies germ cells only inside tubule cross-sections.</p>
+    <p>For every cell type there are two metrics: a total count across the image (ROI), and a count per tubule
+       list (one number per cross-section in the image). For the count per tubule list, the indices are shared
+       across metrics, e.g. the first entries of sertoli_count_per_tubule and spermatogonia_count_per_tubule
+       belong to the same tubule.</p>
+    <ul>
+      <li><strong>sertoli_count</strong>
+        <ul><li>The total number of Sertoli cells detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>gonocyte_count</strong>
+        <ul><li>The total number of gonocytes detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>spermatogonia_count</strong>
+        <ul><li>The total number of spermatogonia detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>spermatocyte_count</strong>
+        <ul><li>The total number of spermatocytes detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>round_spermatid_count</strong>
+        <ul><li>The total number of round spermatids detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>elongated_spermatid_count</strong>
+        <ul><li>The total number of elongated spermatids detected across all tubule cross-sections in the image.</li></ul>
+      </li>
+      <li><strong>sertoli_count_per_tubule</strong>
+        <ul><li>A list of per-tubule Sertoli cell counts — one entry per tubule cross-section, giving the number
+          of Sertoli cells found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>gonocyte_count_per_tubule</strong>
+        <ul><li>A list of per-tubule gonocyte counts — one entry per tubule cross-section, giving the number of
+          gonocytes found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>spermatogonia_count_per_tubule</strong>
+        <ul><li>A list of per-tubule spermatogonia counts — one entry per tubule cross-section, giving the number
+          of spermatogonia found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>spermatocyte_count_per_tubule</strong>
+        <ul><li>A list of per-tubule spermatocyte counts — one entry per tubule cross-section, giving the number
+          of spermatocytes found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>round_spermatid_count_per_tubule</strong>
+        <ul><li>A list of per-tubule round spermatid counts — one entry per tubule cross-section, giving the number
+          of round spermatids found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>elongated_spermatid_count_per_tubule</strong>
+        <ul><li>A list of per-tubule elongated spermatid counts — one entry per tubule cross-section, giving the
+          number of elongated spermatids found inside that individual tubule.</li></ul>
+      </li>
+      <li><strong>tubule_count</strong>
+        <ul><li>The number of tubule cross-sections analyzed in the image (the tubules within which germ cells
+          were counted).</li></ul>
+      </li>
+    </ul>
+
+    <div class="pager">
+      <a class="prev" href="faq.html"><span class="label">Previous</span>&larr; FAQ</a>
+      <span></span>
+    </div>
+  </main>
+</div>
+</body>
+</html>

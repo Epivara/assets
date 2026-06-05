@@ -1,0 +1,151 @@
+/* ReproPath Usage Guide — barebones docs styling */
+
+:root {
+  --text: #1a1a1a;
+  --muted: #666;
+  --border: #ddd;
+  --accent: #2a5d8f;
+  --bg-soft: #f6f7f9;
+  --max-content: 820px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: #fff;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Layout: sidebar + content */
+.layout { display: flex; align-items: flex-start; }
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.sidebar .brand {
+  display: block;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.sidebar nav ul { list-style: none; margin: 0; padding: 0; }
+.sidebar nav > ul > li { margin: 4px 0; }
+.sidebar nav a { display: block; padding: 3px 0; color: var(--text); }
+.sidebar nav a.section { font-weight: 600; }
+.sidebar nav a.current { color: var(--accent); font-weight: 700; }
+.sidebar nav ul ul { margin: 2px 0 8px 14px; }
+.sidebar nav ul ul a { font-size: 0.9rem; color: var(--muted); }
+
+.content {
+  flex: 1;
+  max-width: var(--max-content);
+  padding: 40px 48px 80px;
+  margin: 0 auto;
+}
+
+.content h1 { font-size: 2rem; margin-top: 0; }
+.content h2 { font-size: 1.5rem; margin-top: 2em; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
+.content h3 { font-size: 1.2rem; margin-top: 1.8em; }
+.content h4 { font-size: 1.05rem; margin-top: 1.6em; }
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.content code {
+  background: var(--bg-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+.content ul { padding-left: 22px; }
+.content li { margin: 4px 0; }
+
+.note {
+  background: var(--bg-soft);
+  border-left: 3px solid var(--accent);
+  padding: 10px 16px;
+  margin: 16px 0;
+  border-radius: 0 6px 6px 0;
+}
+
+.disclaimer { font-style: italic; color: var(--muted); }
+
+.tip {
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* prev/next */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  gap: 16px;
+}
+.pager a {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  max-width: 48%;
+}
+.pager a:hover { border-color: var(--accent); text-decoration: none; }
+.pager .label { display: block; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.pager .next { text-align: right; margin-left: auto; }
+
+/* FAQ question styling */
+.faq-q { font-weight: 700; font-style: italic; margin-top: 1.8em; }
+
+.mouse-tip {
+  display: inline-block;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+@media (max-width: 800px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .content { padding: 28px 22px 60px; }
+}
