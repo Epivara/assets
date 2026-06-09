@@ -83,7 +83,7 @@
        in the viewer once complete.</p>
     <p><strong>Metrics</strong> will compute module-specific metrics using the annotations in your selected ROIs. Once
        complete, they will be displayed in a table within the ReproPath menu and saved internally for later
-       export. <em>Note that metrics can only be saved for one module at a time.</em></p>
+       export.</p>
     <p>Pressing <strong>Export</strong> will export any computed metrics to an Excel file for further analysis.</p>
 
     <h3 id="running-a-module">Running a module</h3>
@@ -91,6 +91,8 @@
     <p>With the tool active, click anywhere in the viewer to place a default-sized ROI, or hold and drag to
        place a custom-sized ROI.</p>
     <p>Select an ROI by double-clicking it, or <kbd>Ctrl</kbd>+Click (<kbd>Cmd</kbd>+Click on Mac) to select multiple ROIs.</p>
+    <p>If there are other objects in the ROIs making them hard to click, try toggling the visibility of detections,
+       or selecting the ROIs directly in the <strong>Annotations</strong> tab in the left sidebar.</p>
     <p>A selected object will be yellow with default QuPath settings.</p>
     <img src="assets/roi_selected.png" alt="Selected ROI">
     <p>With one or more ROIs selected, let's try segmenting.</p>
@@ -101,9 +103,10 @@
     <p>QuPath stores annotations in two different forms: as annotations or detections.</p>
     <p>Annotations are editable, user-made objects. Detections are usually created automatically, and are
        space-efficient. They are optimized for many to exist, and as such are uneditable.</p>
-    <p>Segmentation results are returned as detections</p>
-    <p>You are given the optional opportunity to edit any segmentations if desired. To do so, select one or
-       more detection objects, right click, and press <strong>Convert to Annotation (for editing)</strong>.</p>
+    <p>Segmentation results are returned as detections.</p>
+    <p>You are given the optional opportunity to edit any segmentations if desired. To do so, they must be
+       converted to annotations first: select one or more detection objects, right click, and press
+       <strong>Convert to Annotation (for editing)</strong>.</p>
     <p>The recommended way to edit annotations is to:</p>
     <ul>
       <li>Delete erroneous objects.</li>
