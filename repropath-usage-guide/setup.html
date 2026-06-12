@@ -13,7 +13,7 @@
     <div class="brand">ReproPath Usage Guide</div>
     <nav>
       <ul>
-        <li><a class="section" href="index.html">Table of Contents</a></li>
+        <li><a class="section" href="index.html">Home</a></li>
         <li><a class="section current" href="setup.html">Setup</a>
           <ul>
             <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
@@ -26,10 +26,15 @@
         <li><a class="section" href="usage.html">Usage</a>
           <ul>
             <li><a href="usage.html#making-a-project">Making a project</a></li>
-            <li><a href="usage.html#the-extension-menu">The extension menu</a></li>
-            <li><a href="usage.html#running-a-module">Running a module</a></li>
             <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
-            <li><a href="usage.html#exporting-results">Exporting results</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="advanced.html">Advanced Usage</a>
+          <ul>
+            <li><a href="advanced.html#image-tab">The Image tab</a></li>
+            <li><a href="advanced.html#editing-segmentations">Editing Segmentations</a></li>
+            <li><a href="advanced.html#project-tab-settings">Project tab settings</a></li>
+            <li><a href="advanced.html#saving-images">Saving Images</a></li>
           </ul>
         </li>
         <li><a class="section" href="faq.html">FAQ and other Errors</a></li>
@@ -52,7 +57,8 @@
        QuPath can be installed from their <a href="https://qupath.github.io/" target="_blank" rel="noopener">website</a>.</p>
     <p>Once QuPath is installed, open QuPath and finish initial setup.</p>
 
-    <h3 id="layout">Layout</h3>
+    <h3 id="layout">Getting familiar with the layout</h3>
+    <p>To use this guide effectively, it is recommended to be familiar with the following terms.</p>
     <p>The QuPath window will look as such:</p>
     <img src="assets/qupath_viewer.png" alt="QuPath viewer window">
     <p>The <strong>menu bar</strong> contains the <strong>Extensions</strong> menu from which you can access the
@@ -60,46 +66,45 @@
        helpful, such as adjusting brightness.</p>
     <p>The image <strong>viewer</strong> shows you the currently opened image, allowing you to pan and zoom.</p>
     <p>The <strong>tool bar</strong> contains annotation tools and settings for working in the viewer.</p>
-    <p>The left sidebar houses multiple tabs with different purposes.</p>
+    <p>The left sidebar houses multiple tabs with different purposes. Notable tabs include the
+       <strong>Project</strong> and <strong>Annotations</strong> tabs.</p>
 
     <h3 id="installing-the-extension">Installing the extension</h3>
-    <p>Have the extension .jar file downloaded.</p>
-    <p>To install the ReproPath extension, drag and drop the jar file onto the QuPath window.
-       Alternatively, select <strong>Extensions</strong> &rarr; <strong>Manage extensions</strong> from the menu bar to open
-       the Extension Manager, then press <strong>Open extension directory</strong>. Place the jar file into this directory.</p>
+    <p>Have the extension jar file <code>repropath-extension-0.2.3.jar</code> downloaded.</p>
+    <p class="note"><strong>Important note for reinstalling:</strong> To reinstall/update, the old jar file
+       must be removed first. To delete the old jar, go to the menu bar and select <strong>Extensions</strong>
+       &rarr; <strong>Manage extensions</strong> to open the Extension Manager. Scroll down to find the extension,
+       and press the <strong>Delete extension</strong> button
+       <img class="inline-icon" src="assets/delete_extension.png" alt="Delete extension icon">.</p>
+    <p>To install the ReproPath extension, drag and drop the jar file onto the QuPath window.</p>
     <p>Check that ReproPath is installed by finding <strong>Extensions &rarr; ReproPath</strong> in the menu bar.</p>
-    <p>To reinstall/update simply delete the old jar and add the new one. To delete the old jar, open the
-       Extension Manager, find the jar, and press the <strong>Delete Extension</strong> button <img class="inline-icon" src="assets/delete_extension.png" alt="Delete Extension icon">. Or, delete the jar
-       directly from the extension directory.</p>
 
     <h3 id="repropath-setup">ReproPath setup</h3>
     <p>You must log in to use ReproPath.</p>
     <p>Open the ReproPath menu by navigating to the menu bar and selecting
        <strong>Extensions</strong> &rarr; <strong>ReproPath</strong> &rarr; <strong>Open ReproPath</strong>.</p>
-    <p>This will open the ReproPath menu. Press <strong>Login</strong> at the top to open a login prompt in the browser.</p>
+    <p>This will open the ReproPath menu. Pressing <strong>Login</strong> at the top will open a prompt in the browser.</p>
     <p>Epivara users should select the <strong>Continue with Google</strong> option and use their company Google login.</p>
-    <p>Outside users should create a new account my pressing <strong>Sign up</strong>. If you are denied access,
+    <p>Outside users should create a new account by pressing <strong>Sign up</strong>. If you are denied access,
        contact an Epivara administrator to have an account created.</p>
 
     <h3 id="cloud-slide-setup">Setting up Cloud Slide viewing</h3>
-    <p>Slide image files can be large and unwieldy; the ReproPath extension provides a way to stream slide
-       images from an AWS S3 bucket. Other connections are not supported at this time.</p>
-    <p>Set up the connection by navigating to the menu bar, <strong>Extensions</strong> &rarr; <strong>ReproPath</strong>
-       &rarr; <strong>Open from Cloud</strong>. This opens the <strong>Open from Cloud</strong> menu with a form to specify a connection.</p>
-    <p>For the Epivara jar, this form should come populated with defaults pointing to Epivara's slide image
-       store. If the connection is valid, pressing <strong>Sign in with AWS</strong> will open a browser tab prompting
-       a login through whatever authentication service is set up.</p>
-    <p>The Epivara slide storage uses the AWS IAM Identity Center for authentication; it has been populated
-       with Google logins from Epivara's Google organization. Proceed to login with your Epivara company email,
-       completing any account setup required.</p>
-    <p>For outside users, set up and connect your own AWS S3 cloud storage, or contact an Epivara admin to
-       create a user for you.</p>
-    <p>Once logged in, you should have access to cloud-hosted slide images in the <strong>Open from Cloud</strong> menu,
-       which you can view and add to your projects.</p>
+    <p>The ReproPath extension provides a way to stream slide images from an AWS S3 bucket. Other connections
+       are not supported at this time.</p>
+    <p>To set up the connection:</p>
+    <ul>
+      <li>In the menu bar, select <strong>Extensions</strong> &rarr; <strong>ReproPath</strong> &rarr;
+          <strong>Open from Cloud</strong>. This opens a form to specify a connection. This form should come
+          populated with defaults for Epivara. Press <strong>Sign in with AWS</strong> to continue.</li>
+      <li>The Epivara slide storage access center has been populated with Google logins from Epivara's Google
+          organization. Login with your Epivara company email as the username, completing any account setup required.</li>
+      <li>For outside users, contact an Epivara admin to create a user for you, or use your own AWS connection.</li>
+      <li>Once logged in, the menu should show cloud-hosted slide images which you can view and add to your projects.</li>
+    </ul>
     <p class="disclaimer"><strong>Disclaimer</strong>: Only <em>.tiff</em> images are supported at this time.</p>
 
     <div class="pager">
-      <a class="prev" href="index.html"><span class="label">Previous</span>&larr; Table of Contents</a>
+      <a class="prev" href="index.html"><span class="label">Previous</span>&larr; Home</a>
       <a class="next" href="usage.html"><span class="label">Next</span>Usage &rarr;</a>
     </div>
   </main>

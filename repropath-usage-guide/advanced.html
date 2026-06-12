@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Usage — ReproPath Usage Guide</title>
+<link rel="icon" href="../general/favicon.ico" sizes="any">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">ReproPath Usage Guide</div>
+    <nav>
+      <ul>
+        <li><a class="section" href="index.html">Home</a></li>
+        <li><a class="section" href="setup.html">Setup</a>
+          <ul>
+            <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
+            <li><a href="setup.html#layout">Layout</a></li>
+            <li><a href="setup.html#installing-the-extension">Installing the extension</a></li>
+            <li><a href="setup.html#repropath-setup">ReproPath setup</a></li>
+            <li><a href="setup.html#cloud-slide-setup">Cloud Slide setup</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="usage.html">Usage</a>
+          <ul>
+            <li><a href="usage.html#making-a-project">Making a project</a></li>
+            <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
+          </ul>
+        </li>
+        <li><a class="section current" href="advanced.html">Advanced Usage</a>
+          <ul>
+            <li><a href="advanced.html#image-tab">The Image tab</a></li>
+            <li><a href="advanced.html#editing-segmentations">Editing Segmentations</a></li>
+            <li><a href="advanced.html#project-tab-settings">Project tab settings</a></li>
+            <li><a href="advanced.html#saving-images">Saving Images</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="faq.html">FAQ and other Errors</a></li>
+        <li><a class="section" href="glossary.html">Glossary</a>
+          <ul>
+            <li><a href="glossary.html#tubule-module">Tubule Module</a></li>
+            <li><a href="glossary.html#leydig-module">Leydig Module</a></li>
+            <li><a href="glossary.html#spermatogenesis-module">Spermatogenesis Module</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Advanced Usage</h1>
+    <p>This section offers detailed usage tips to get the most out of using ReproPath.</p>
+
+    <h3 id="image-tab">The Image tab (for single image workflows)</h3>
+    <p>The <strong>Image</strong> tab is used to work on one image at a time, specifically the current image open
+       in the viewer.</p>
+    <img src="assets/repropath_menu_image.png" alt="ReproPath Image tab">
+    <p>Under <strong>ROI Defaults</strong>, you can change the size of the default ROI placed down when you click
+       with the ReproPath ROI tool.</p>
+    <p><strong>Image</strong> tab functions will only process <em>selected</em> ROIs. Select an ROI by
+       double-clicking it, or <kbd>Ctrl</kbd>+Click (<kbd>Cmd</kbd>+Click on Mac) to select multiple ROIs.</p>
+    <p>If there are other objects in the ROIs making them hard to click, try selecting the ROIs directly from the
+       <strong>Annotations</strong> tab in the left sidebar.</p>
+    <p><strong>Segmentation</strong> will run model predictions only on your <em>currently selected</em> ROIs.</p>
+    <p><strong>Metrics</strong> will compute module-specific metrics using existing segmentations, only on your
+       selected ROIs.</p>
+    <p>If the currently opened image has already had metrics computed, a per-image metrics table will be available
+       in the <strong>Image</strong> tab.</p>
+    <img src="assets/image_metrics_table.png" alt="Per-image metrics table">
+    <p>Pressing <strong>Export</strong> will export any computed metrics for this image to an Excel file. This is
+       not the same Excel sheet generated from exporting in the <strong>Project</strong> tab.</p>
+
+    <h3 id="editing-segmentations">Editing Segmentations</h3>
+    <p>Our models can make mistakes too.</p>
+    <p>You have the opportunity to correct these mistakes manually.</p>
+    <p>QuPath viewer objects exist in two different forms: annotations or detections.</p>
+    <p>Annotations are editable, user-made objects.</p>
+    <p>Detections are usually created automatically, and are space-efficient. They are optimized for many to exist,
+       and as such are uneditable.</p>
+    <p>Model segmentation results are returned as detections.</p>
+    <p>To edit model segmentations, they must be converted to annotations first: select one or more detection
+       objects, right click, and press <strong>Convert to Annotation (for editing)</strong>.</p>
+    <img src="assets/convert_to_annotation.png" alt="Convert to Annotation menu option">
+    <p>The recommended way to edit annotations is to:</p>
+    <ul>
+      <li>Delete erroneous objects.</li>
+      <li>Change object classes by selecting an object, right clicking, then choosing a class under
+          <strong>Set classification</strong>.</li>
+      <li>Use the Brush tool to adjust the mask of a selected annotation.</li>
+      <li>Use the Polygon or Brush tools to create new objects. Make sure these objects are given a classification.</li>
+    </ul>
+    <p class="note"><strong>Important note:</strong> Any edits to segmentations will invalidate any metrics
+       calculated for that ROI. Invalidated metrics will be ignored in metrics display and export.<br><br>
+       Metrics must be re-run for these ROIs to have valid metrics again. You can run metrics for these ROIs via
+       the <strong>Image</strong> tab for selective work, or the <strong>Project</strong> tab for bulk processing.</p>
+    <p>You can check the <strong>Project</strong> tab status column for project state.</p>
+    <img src="assets/invalidated_metrics.png" alt="Invalidated metrics in the Project tab">
+    <p>For the third slide image, you can see that segmentations are present, but metrics need to be re-measured.</p>
+
+    <h3 id="project-tab-settings">Advanced project tab settings</h3>
+    <p>The <strong>Project</strong> tab offers additional settings which were skipped in the basic usage tutorial.</p>
+    <img src="assets/project_tab_settings.png" alt="Project tab settings" style="max-width: 697px;">
+    <p>For info on the <strong>Skip processed</strong> and <strong>Keep shared objects</strong> settings which affect
+       <strong>Run</strong> functionality, hover over the <em>(?)</em> icons.</p>
+    <p><strong>Groups:</strong><br>
+       Before you run processing, you may want to group images first. To do this, select images by checking the
+       tickboxes, then press <strong>Assign Group</strong> to set a group name.</p>
+    <p>A grouped project would look something like this:</p>
+    <img src="assets/project_groups.png" alt="Grouped project">
+    <p>Grouping allows you to specify aggregation groups for metrics. Once the processing pipeline is done running,
+       you can find results in the metrics table at the bottom of the window.</p>
+    <img src="assets/group_metrics.png" alt="Grouped metrics table">
+    <p>Open the "<em>Per ...</em>" dropdown to change the granularity of the computed metrics. You can see metrics
+       at the group, image, and ROI levels. Using the <strong>Per Group</strong> setting, you can see summary metrics
+       for each separate group. This is useful for displaying a measured difference between a Control and Test group,
+       for example.</p>
+
+    <h3 id="saving-images">Saving Images</h3>
+    <p>QuPath allows easily saving your ROIs as images with or without the annotations.</p>
+    <p>To do so, select an ROI, then in the menu bar, choose <strong>File</strong> &rarr; <strong>Export images</strong>,
+       then choose <strong>Original pixels</strong> to save the actual image, or
+       <strong>Rendered RGB (with overlays)</strong> to export the image with annotations overlaid.</p>
+
+    <div class="pager">
+      <a class="prev" href="usage.html"><span class="label">Previous</span>&larr; Usage</a>
+      <a class="next" href="faq.html"><span class="label">Next</span>FAQ &rarr;</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

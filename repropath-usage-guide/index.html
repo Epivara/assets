@@ -13,7 +13,7 @@
     <div class="brand">ReproPath Usage Guide</div>
     <nav>
       <ul>
-        <li><a class="section current" href="index.html">Table of Contents</a></li>
+        <li><a class="section current" href="index.html">Home</a></li>
         <li><a class="section" href="setup.html">Setup</a>
           <ul>
             <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
@@ -26,10 +26,15 @@
         <li><a class="section" href="usage.html">Usage</a>
           <ul>
             <li><a href="usage.html#making-a-project">Making a project</a></li>
-            <li><a href="usage.html#the-extension-menu">The extension menu</a></li>
-            <li><a href="usage.html#running-a-module">Running a module</a></li>
             <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
-            <li><a href="usage.html#exporting-results">Exporting results</a></li>
+          </ul>
+        </li>
+        <li><a class="section" href="advanced.html">Advanced Usage</a>
+          <ul>
+            <li><a href="advanced.html#image-tab">The Image tab</a></li>
+            <li><a href="advanced.html#editing-segmentations">Editing Segmentations</a></li>
+            <li><a href="advanced.html#project-tab-settings">Project tab settings</a></li>
+            <li><a href="advanced.html#saving-images">Saving Images</a></li>
           </ul>
         </li>
         <li><a class="section" href="faq.html">FAQ and other Errors</a></li>
@@ -45,29 +50,46 @@
   </aside>
 
   <main class="content">
-    <p>Using a mouse is recommended!</p>
     <h1>ReproPath Usage Guide</h1>
-    <p>Welcome to the ReproPath QuPath extension guide. Use the navigation below or the
-       sidebar to get started.</p>
 
-    <h2>Table of Contents</h2>
+    <h2 id="what-is-repropath">What is ReproPath?</h2>
+    <p>ReproPath is an extension built for QuPath, the digital pathology platform.</p>
+    <p>ReproPath gives the user access to custom trained AI models specialized in testes histology to aid in
+       pathological analysis. It uses these AI models to segment objects of interest and return mathematical
+       measurements.</p>
+    <p>At this time, ReproPath offers three "modules":</p>
+    <ul>
+      <li>Tubule</li>
+      <li>Leydig cell</li>
+      <li>Spermatogenesis</li>
+    </ul>
+    <p>Each module specializes in finding different objects and returns module-specific metrics.</p>
+    <p>To get started using ReproPath, continue onto <a href="setup.html">setup</a>.</p>
+    <p>Using a mouse is recommended!</p>
+
+    <h2 id="table-of-contents">Table of Contents</h2>
     <ul>
       <li><a href="setup.html">Setup</a>
         <ul>
           <li><a href="setup.html#installing-qupath">Installing QuPath</a></li>
-          <li><a href="setup.html#layout">Layout</a></li>
+          <li><a href="setup.html#layout">Getting familiar with the layout</a></li>
           <li><a href="setup.html#installing-the-extension">Installing the extension</a></li>
           <li><a href="setup.html#repropath-setup">ReproPath setup</a></li>
-          <li><a href="setup.html#cloud-slide-setup">Cloud Slide setup</a></li>
+          <li><a href="setup.html#cloud-slide-setup">Setting up Cloud Slide viewing</a></li>
         </ul>
       </li>
       <li><a href="usage.html">Usage</a>
         <ul>
-          <li><a href="usage.html#making-a-project">Making a project</a></li>
-          <li><a href="usage.html#the-extension-menu">The extension menu</a></li>
-          <li><a href="usage.html#running-a-module">Running a module</a></li>
+          <li><a href="usage.html#making-a-project">Making a project and adding images</a></li>
           <li><a href="usage.html#running-a-project-workflow">Running a project workflow</a></li>
-          <li><a href="usage.html#exporting-results">Exporting results</a></li>
+        </ul>
+      </li>
+      <li><a href="advanced.html">Advanced Usage</a>
+        <ul>
+          <li><a href="advanced.html#image-tab">The Image tab (for single image workflows)</a></li>
+          <li><a href="advanced.html#editing-segmentations">Editing Segmentations</a></li>
+          <li><a href="advanced.html#project-tab-settings">Advanced project tab settings</a></li>
+          <li><a href="advanced.html#saving-images">Saving Images</a></li>
         </ul>
       </li>
       <li><a href="faq.html">FAQ and other Errors</a></li>
