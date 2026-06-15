@@ -91,16 +91,24 @@
     <h3 id="cloud-slide-setup">Setting up Cloud Slide viewing</h3>
     <p>The ReproPath extension provides a way to stream slide images from an AWS S3 bucket. Other connections
        are not supported at this time.</p>
-    <p>To set up the connection:</p>
+    <p>To set up, in the menu bar, select <strong>Extensions</strong> &rarr; <strong>ReproPath</strong> &rarr;
+       <strong>Open from Cloud</strong>. This opens a form to specify a connection.</p>
+    <p><strong>For Legacy Epivara users:</strong></p>
     <ul>
-      <li>In the menu bar, select <strong>Extensions</strong> &rarr; <strong>ReproPath</strong> &rarr;
-          <strong>Open from Cloud</strong>. This opens a form to specify a connection. This form should come
-          populated with defaults for Epivara. Press <strong>Sign in with AWS</strong> to continue.</li>
-      <li>The Epivara slide storage access center has been populated with Google logins from Epivara's Google
-          organization. Login with your Epivara company email as the username, completing any account setup required.</li>
-      <li>For outside users, contact an Epivara admin to create a user for you, or use your own AWS connection.</li>
-      <li>Once logged in, the menu should show cloud-hosted slide images which you can view and add to your projects.</li>
+      <li>This form should come populated with defaults for Epivara. Press <strong>Sign in with AWS</strong> to continue.</li>
+      <li>Login with your Epivara company email (including the @epivara.com) as the username. Usernames have already
+          been created for Epivara emails created before 05/2026.</li>
+      <li>On your first time signing in, you will need to create a password. Select <strong>Forgot Password?</strong>
+          and follow the instructions to reset your password.</li>
+      <li>Once your password is created, return to QuPath and retry the login by cancelling the old browser login
+          request and pressing <strong>Sign in with AWS</strong> again.</li>
     </ul>
+    <p><strong>For New Epivara Employees and outside users:</strong></p>
+    <ul>
+      <li>Contact an Epivara admin to create a user for you.</li>
+      <li>Alternatively, use your own AWS connection.</li>
+    </ul>
+    <p>Once logged in, the menu should show cloud-hosted slide images which you can view and add to your projects.</p>
     <p class="disclaimer"><strong>Disclaimer</strong>: Only <em>.tiff</em> images are supported at this time.</p>
 
     <div class="pager">
