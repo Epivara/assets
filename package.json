@@ -1,0 +1,15 @@
+{
+  "name": "epivara-assets",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Epivara public assets & documentation site (GitHub Pages).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs && pagefind --site chatgpt-business-guide",
+    "build:nav": "node build.mjs",
+    "build:search": "pagefind --site chatgpt-business-guide"
+  },
+  "devDependencies": {
+    "pagefind": "^1.5.2"
+  }
+}

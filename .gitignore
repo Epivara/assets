@@ -1,1 +1,7 @@
 .DS_Store
+
+# Node dependencies (build tooling — Pagefind).
+node_modules/
+
+# Pagefind search index — generated at deploy time, and locally for testing.
+chatgpt-business-guide/pagefind/
