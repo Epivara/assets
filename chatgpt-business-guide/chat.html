@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{if(localStorage.getItem('cbg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['connectors.html','gmail.html','dropbox.html','zoom.html','canva.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-connectors')==='closed')d.setAttribute('data-connectors','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -28,10 +28,14 @@
     <nav>
       <ul>
         <li><a href="index.html">Welcome</a></li>
-        <li><a href="setup.html">Setup</a></li>
+        <li><a href="signing-in.html">Signing In</a></li>
         <li><a href="chat.html">Chat</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="connectors.html">Connectors</a>
+        <li class="has-children">
+          <div class="nav-parent">
+            <a href="connectors.html">Connectors</a>
+            <button class="nav-caret" type="button" aria-label="Toggle Connectors submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+          </div>
           <ul>
             <li><a href="gmail.html">Gmail</a></li>
             <li><a href="dropbox.html">Dropbox</a></li>
@@ -47,6 +51,7 @@
         <li><a href="canvas.html">Canvas</a></li>
         <li><a href="voice-mode.html">Voice Mode</a></li>
         <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="desktop-app.html">Desktop App</a></li>
         <li><a href="best-practices.html">Best Practices</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
@@ -67,6 +72,9 @@
       <p><em>&ldquo;@Presentations turn these notes into a 5-slide overview&rdquo;</em></p>
       <p><strong>Expected outcome:</strong> ChatGPT pulls in the Presentations tool and drafts slides.</p>
     </div>
+
+    <h2>Want an app instead of a browser tab?</h2>
+    <p>You can use everything in this guide right in your browser &mdash; that's the simplest way to start, and the rest of the guide assumes it. There's also a desktop app if you'd rather have ChatGPT in its own window. It's a bit more involved, so it has its own page: see <a href="desktop-app.html">Desktop App</a>.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

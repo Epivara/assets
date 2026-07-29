@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{if(localStorage.getItem('cbg-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['connectors.html','gmail.html','dropbox.html','zoom.html','canva.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-connectors')==='closed')d.setAttribute('data-connectors','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -28,10 +28,14 @@
     <nav>
       <ul>
         <li><a href="index.html">Welcome</a></li>
-        <li><a href="setup.html">Setup</a></li>
+        <li><a href="signing-in.html">Signing In</a></li>
         <li><a href="chat.html">Chat</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="connectors.html">Connectors</a>
+        <li class="has-children">
+          <div class="nav-parent">
+            <a href="connectors.html">Connectors</a>
+            <button class="nav-caret" type="button" aria-label="Toggle Connectors submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+          </div>
           <ul>
             <li><a href="gmail.html">Gmail</a></li>
             <li><a href="dropbox.html">Dropbox</a></li>
@@ -47,6 +51,7 @@
         <li><a href="canvas.html">Canvas</a></li>
         <li><a href="voice-mode.html">Voice Mode</a></li>
         <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="desktop-app.html">Desktop App</a></li>
         <li><a href="best-practices.html">Best Practices</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
@@ -56,12 +61,23 @@
 
   <main class="content" data-pagefind-body>
     <h1>Voice Mode</h1>
-    <p>Voice Mode lets you talk to ChatGPT out loud instead of typing.</p>
-    <div class="screenshot">[ Screenshot placeholder — voice mode active ]</div>
+    <p>Voice Mode lets you talk to ChatGPT out loud and hear it talk back, like a phone call. It's in the mobile app and the desktop app.</p>
+
     <div class="callout tip">
-      <span class="callout-label">Tip</span>
-      Voice Mode works best in the desktop or mobile app.
+      <span class="callout-label">Be honest with yourself about this one</span>
+      For most office work, Voice Mode is more novelty than tool. You can't really narrate at ChatGPT in a shared room without bothering everyone, and for anything you'll want to refer back to, reading a response beats hearing it. Typing usually gets you there just as fast &mdash; with a record you can copy, search, and re-read.
     </div>
+
+    <h2>When it's actually useful</h2>
+    <p>There are real cases where talking wins:</p>
+    <ul>
+      <li><strong>Hands-free moments</strong> &mdash; walking to a meeting, driving, or away from a keyboard and you want to think something through out loud.</li>
+      <li><strong>A private space</strong> &mdash; your own office or working from home, where talking out loud doesn't disturb anyone.</li>
+      <li><strong>Accessibility</strong> &mdash; when typing or reading a screen is difficult, speaking and listening is the easier way in.</li>
+      <li><strong>Casual back-and-forth</strong> &mdash; loosely talking through an idea, where you don't need a transcript to keep.</li>
+    </ul>
+    <p>If that's not you, don't feel like you're missing out by sticking to the chat box &mdash; for day-to-day work at a desk, you usually are better off there.</p>
+    <div class="screenshot">[ Screenshot placeholder — voice mode active ]</div>
   </main>
 </div>
 <script src="app.js" defer></script>

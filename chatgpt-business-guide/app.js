@@ -18,6 +18,29 @@
   }
 })();
 
+// --- Connectors submenu collapse (open/closed state applied pre-paint in <head>) ---
+(function () {
+  var KEY = "cbg-connectors";
+  var d = document.documentElement;
+  var btn = document.querySelector(".nav-caret");
+  if (!btn) return;
+  function sync() {
+    btn.setAttribute("aria-expanded", d.getAttribute("data-connectors") === "closed" ? "false" : "true");
+  }
+  sync();
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (d.getAttribute("data-connectors") === "closed") {
+      d.removeAttribute("data-connectors");
+      try { localStorage.setItem(KEY, "open"); } catch (e) {}
+    } else {
+      d.setAttribute("data-connectors", "closed");
+      try { localStorage.setItem(KEY, "closed"); } catch (e) {}
+    }
+    sync();
+  });
+})();
+
 // --- Highlight the current page in the sidebar ---
 (function () {
   var here = location.pathname.split("/").pop() || "index.html";
