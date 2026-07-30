@@ -51,6 +51,20 @@
   }
 })();
 
+// --- Keep the sidebar's scroll position across page loads ---
+// Each page is a full document, so the sidebar re-renders scrolled to top on every
+// nav. The RESTORE runs inline right after the sidebar markup (pre-paint, no flash);
+// here we just persist the position as the user scrolls. sessionStorage (not
+// localStorage) so a fresh visit still starts at the top.
+(function () {
+  var KEY = "cbg-sidebar-scroll";
+  var el = document.querySelector(".sidebar");
+  if (!el) return;
+  el.addEventListener("scroll", function () {
+    try { sessionStorage.setItem(KEY, el.scrollTop); } catch (e) {}
+  }, { passive: true });
+})();
+
 // --- Pagefind search (index generated at deploy time; inert until then) ---
 window.addEventListener("DOMContentLoaded", function () {
   if (typeof PagefindUI !== "undefined") {
