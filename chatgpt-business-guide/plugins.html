@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scheduled Tasks — ChatGPT Business Guide</title>
+<title>Plugins — ChatGPT Business Guide</title>
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
@@ -106,9 +106,42 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Scheduled Tasks</h1>
-    <p>Scheduled Tasks let ChatGPT run something for you on a recurring schedule &mdash; a weekly summary, a daily reminder, and so on.</p>
-    <div class="screenshot">[ Screenshot placeholder — setting up a scheduled task ]</div>
+    <h1>Plugins</h1>
+    <p>A plugin lets ChatGPT interact with other services, making it easier for ChatGPT to start doing work you already do. For example, by enabling the Dropbox plugin, you can give ChatGPT the ability to search, read, and create new files.</p>
+
+    <div class="callout warning">
+      <span class="callout-label">Plugins must be enabled and signed in</span>
+      Plugins are <strong>per-user and self-serve</strong>. To use a plugin for a service, it must be installed, and you must log in and grant ChatGPT permissions to access that service under your account.
+    </div>
+
+    <h2>Enabling a plugin</h2>
+    <img class="narrow" src="assets/plugins_1.png" alt="An arrow pointing to the Plugins tab in the ChatGPT sidebar.">
+    <p>In the sidebar, select <strong>Plugins</strong> to open the plugin catalog.</p>
+    <p>Browse or search for a plugin, then press the <code>+</code> to install it. If the plugin needs you to sign in, you'll be handed off to that service to log in and approve access.</p>
+
+    <div class="callout warning">
+      <span class="callout-label">Some plugins need admin approval</span>
+      Plugins are disabled by default across the company &mdash; an admin approves the ones we're allowed to use. You can browse the whole catalog, but if a plugin won't enable, it's waiting on approval. If one looks useful, ask an admin to turn it on.
+    </div>
+
+    <h2>Using a plugin</h2>
+    <p>Once a plugin is enabled, you bring it into a chat the same way you reach any tool: type <code>@</code> (or use the <code>+</code> button) and pick it from the menu.</p>
+
+    <img class="narrow" src="assets/plugins_2.png" alt="A chat prompt with the Gmail and Dropbox plugins tagged.">
+    <p class="caption">A prompt with the Gmail and Dropbox plugins attached.</p>
+
+    <p>For most plugins you don't have to tag anything. If you say &ldquo;search my email for&hellip;&rdquo; ChatGPT can see available plugins and find the email plugin on its own. Though, tagging it yourself points ChatGPT straight at the right place, which tends to make the answer more reliable.</p>
+    <p>The exact functions available for each plugin will vary. You can find a list of actions provided by a plugin in the <strong>Settings</strong> menu, or you could just ask ChatGPT what it can do with it.</p>
+    <p>Plugins are built in collaboration with the services they connect to, which means a plugin only lets ChatGPT do what that service chooses to offer. For example, ChatGPT can't necessarily do everything you could do in Dropbox yourself; it can only do whatever functions the Dropbox plugin provides.</p>
+
+    <h2>Plugins we use at Epivara</h2>
+    <p>These are services Epivara runs on day to day, so specific details have been noted on separate pages:</p>
+    <ul class="card-list">
+      <li><a href="gmail.html"><span class="title">Gmail</span><span class="desc">Our email &mdash; search and summarize your inbox</span></a></li>
+      <li><a href="dropbox.html"><span class="title">Dropbox</span><span class="desc">Our file storage &mdash; pull in documents</span></a></li>
+      <li><a href="zoom.html"><span class="title">Zoom</span><span class="desc">Our meetings &mdash; retrieve transcripts and recaps</span></a></li>
+      <li><a href="quickbooks.html"><span class="title">QuickBooks</span><span class="desc">Our financials &mdash; look up accounting data</span></a></li>
+    </ul>
   </main>
 </div>
 <script src="app.js" defer></script>

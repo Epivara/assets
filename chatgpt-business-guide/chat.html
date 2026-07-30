@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['connectors.html','gmail.html','dropbox.html','zoom.html','canva.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-connectors')==='closed')d.setAttribute('data-connectors','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -26,37 +26,81 @@
       <div id="search"></div>
     </div>
     <nav>
-      <ul>
+      <ul class="nav-top">
         <li><a href="index.html">Welcome</a></li>
-        <li><a href="signing-in.html">Signing In</a></li>
-        <li><a href="chat.html">Chat</a></li>
-        <li><a href="memory.html">Memory</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li class="has-children">
-          <div class="nav-parent">
-            <a href="connectors.html">Connectors</a>
-            <button class="nav-caret" type="button" aria-label="Toggle Connectors submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
-          </div>
-          <ul>
-            <li><a href="gmail.html">Gmail</a></li>
-            <li><a href="dropbox.html">Dropbox</a></li>
-            <li><a href="zoom.html">Zoom</a></li>
-            <li><a href="canva.html">Canva</a></li>
-            <li><a href="quickbooks.html">QuickBooks</a></li>
-          </ul>
-        </li>
-        <li><a href="image-generation.html">Image Generation</a></li>
-        <li><a href="deep-research.html">Deep Research</a></li>
-        <li><a href="agents.html">Agents</a></li>
-        <li><a href="scheduled-tasks.html">Scheduled Tasks</a></li>
-        <li><a href="canvas.html">Canvas</a></li>
-        <li><a href="voice-mode.html">Voice Mode</a></li>
-        <li><a href="presentations.html">Presentations</a></li>
-        <li><a href="desktop-app.html">Desktop App</a></li>
-        <li><a href="usage.html">Usage</a></li>
-        <li><a href="best-practices.html">Best Practices</a></li>
-        <li><a href="faq.html">FAQ</a></li>
       </ul>
+
+      <div class="nav-section">
+        <div class="nav-section-head">
+          <span class="nav-section-title">The Basics</span>
+          <span class="nav-section-note">start here</span>
+        </div>
+        <ul>
+          <li><a href="signing-in.html">Signing In</a></li>
+          <li><a href="chat.html">Chat</a></li>
+          <li class="has-children">
+            <div class="nav-parent">
+              <a href="plugins.html">Plugins</a>
+              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="gmail.html">Gmail</a></li>
+              <li><a href="dropbox.html">Dropbox</a></li>
+              <li><a href="zoom.html">Zoom</a></li>
+              <li><a href="quickbooks.html">QuickBooks</a></li>
+            </ul>
+          </li>
+          <li><a href="memory.html">Memory</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-head">
+          <span class="nav-section-title">Tools</span>
+          <span class="nav-section-note">read what's relevant to your work</span>
+        </div>
+        <ul>
+          <li><a href="image-generation.html">Image Generation</a></li>
+          <li><a href="presentations.html">Presentations</a></li>
+          <li><a href="deep-research.html">Deep Research</a></li>
+          <li><a href="canvas.html">Canvas</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-head">
+          <span class="nav-section-title">Automation</span>
+        </div>
+        <ul>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="agents.html">Agents</a></li>
+          <li><a href="scheduled-tasks.html">Scheduled Tasks</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-head">
+          <span class="nav-section-title">Going Further</span>
+        </div>
+        <ul>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="voice-mode.html">Voice Mode</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-section-head">
+          <span class="nav-section-title">Good to Know</span>
+          <span class="nav-section-note">background &amp; reference</span>
+        </div>
+        <ul>
+          <li><a href="usage.html">Usage</a></li>
+          <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+      </div>
     </nav>
   </aside>
   <!-- SIDEBAR:END -->
@@ -73,7 +117,7 @@
     <p>That isn't to say that the models used for Chat are dumber than the Work/Codex models. Chat is still capable of tasks like research and analysis. The Work/Codex models are just configured with different tools and instructions more suited for those tasks.</p>
 
     <h2>@-mentions</h2>
-    <p>Press the <code>+</code> button in the message box, or type <code>@</code>, to open a menu of available tools. From there you can reach for a tool like the image generator, tag a <a href="connectors.html">connector</a>, or route your prompt to a specialized <a href="agents.html">agent</a>.</p>
+    <p>Press the <code>+</code> button in the message box, or type <code>@</code>, to open a menu of available tools. From there you can reach for a tool like the image generator, tag a <a href="plugins.html">plugin</a>, or route your prompt to a specialized <a href="agents.html">agent</a>.</p>
     <img class="narrow" src="assets/chat_2.png" alt="The chat message box with the tool menu open, listing tools such as Create image, Web search, Company knowledge, Deep research, Gmail, and Canva.">
     <p class="caption">Open the tool menu with the <code>+</code> button or by typing <code>@</code>.</p>
     <div class="try-it">
@@ -82,7 +126,7 @@
       <p><em>&ldquo;@Presentations make me a 3-slide overview on good email etiquette&rdquo;</em></p>
       <p><strong>Expected outcome:</strong> the <code>@</code> pulls in the Presentations tool, and ChatGPT uses it to create the requested slideshow.</p>
     </div>
-    <p>You don't always have to tag a tool. ChatGPT can see which ones are available and will often reach for the right one on its own. For example, asking &ldquo;generate an image of a dog&rdquo; usually fires up the image tool with no tag at all. Tagging mainly makes answers faster and more reliable; a few tools also won't run unless you tag them, so it's good practice to tag.</p>
+    <p>You don't always have to tag a tool. ChatGPT can see which ones are available and will often reach for the right one on its own. For example, asking ChatGPT to &ldquo;generate an image of a dog&rdquo; usually fires up the image tool with no tag at all. Tagging mainly makes answers faster and more reliable; a few tools also won't run unless you tag them, so it's good practice to tag.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

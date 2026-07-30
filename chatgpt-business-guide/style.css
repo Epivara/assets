@@ -120,7 +120,33 @@ a:hover { text-decoration: underline; }
 
 /* Nav */
 .sidebar nav ul { list-style: none; margin: 0; padding: 0; }
-.sidebar nav > ul > li { margin: 2px 0; }
+.sidebar nav .nav-top > li,
+.sidebar nav .nav-section > ul > li { margin: 2px 0; }
+
+/* Section grouping (labels are dividers, not links) */
+.sidebar nav .nav-section {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.sidebar nav .nav-section-head {
+  padding: 0 8px;
+  margin-bottom: 6px;
+}
+.sidebar nav .nav-section-title {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+.sidebar nav .nav-section-note {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  opacity: 0.8;
+}
 .sidebar nav a {
   display: block;
   padding: 5px 8px;
@@ -137,7 +163,7 @@ a:hover { text-decoration: underline; }
 .sidebar nav ul ul a { font-size: 0.92rem; color: var(--muted); }
 .sidebar nav ul ul a.current { color: var(--accent); }
 
-/* Collapsible parent (Connectors): link + caret share one row. */
+/* Collapsible parent (Plugins): link + caret share one row. */
 .sidebar nav .nav-parent { display: flex; align-items: center; }
 .sidebar nav .nav-parent > a { flex: 1; }
 .nav-caret {
@@ -164,8 +190,8 @@ a:hover { text-decoration: underline; }
   transition: transform 0.15s ease;
 }
 /* Closed state is applied pre-paint on <html> (mirrors the theme toggle). */
-:root[data-connectors="closed"] .nav-caret .caret { transform: rotate(0deg); }  /* points right */
-:root[data-connectors="closed"] .sidebar nav .has-children > ul { display: none; }
+:root[data-plugins="closed"] .nav-caret .caret { transform: rotate(0deg); }  /* points right */
+:root[data-plugins="closed"] .sidebar nav .has-children > ul { display: none; }
 
 /* Content */
 .content {
@@ -254,7 +280,7 @@ a:hover { text-decoration: underline; }
 }
 .try-it h3 { margin-top: 0; color: var(--accent); font-size: 1rem; }
 
-/* Card list (e.g. connector index) */
+/* Card list (e.g. plugin index) */
 .card-list { display: grid; gap: 12px; padding: 0; margin: 20px 0; list-style: none; }
 .card-list a {
   display: block;

@@ -18,23 +18,23 @@
   }
 })();
 
-// --- Connectors submenu collapse (open/closed state applied pre-paint in <head>) ---
+// --- Plugins submenu collapse (open/closed state applied pre-paint in <head>) ---
 (function () {
-  var KEY = "cbg-connectors";
+  var KEY = "cbg-plugins";
   var d = document.documentElement;
   var btn = document.querySelector(".nav-caret");
   if (!btn) return;
   function sync() {
-    btn.setAttribute("aria-expanded", d.getAttribute("data-connectors") === "closed" ? "false" : "true");
+    btn.setAttribute("aria-expanded", d.getAttribute("data-plugins") === "closed" ? "false" : "true");
   }
   sync();
   btn.addEventListener("click", function (e) {
     e.preventDefault();
-    if (d.getAttribute("data-connectors") === "closed") {
-      d.removeAttribute("data-connectors");
+    if (d.getAttribute("data-plugins") === "closed") {
+      d.removeAttribute("data-plugins");
       try { localStorage.setItem(KEY, "open"); } catch (e) {}
     } else {
-      d.setAttribute("data-connectors", "closed");
+      d.setAttribute("data-plugins", "closed");
       try { localStorage.setItem(KEY, "closed"); } catch (e) {}
     }
     sync();
