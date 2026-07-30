@@ -30,6 +30,7 @@
         <li><a href="index.html">Welcome</a></li>
         <li><a href="signing-in.html">Signing In</a></li>
         <li><a href="chat.html">Chat</a></li>
+        <li><a href="memory.html">Memory</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li class="has-children">
           <div class="nav-parent">
@@ -52,6 +53,7 @@
         <li><a href="voice-mode.html">Voice Mode</a></li>
         <li><a href="presentations.html">Presentations</a></li>
         <li><a href="desktop-app.html">Desktop App</a></li>
+        <li><a href="usage.html">Usage</a></li>
         <li><a href="best-practices.html">Best Practices</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
@@ -61,20 +63,26 @@
 
   <main class="content" data-pagefind-body>
     <h1>Chat</h1>
-    <p>Chat is where most of your work happens. This page covers the basics and how to summon tools, connectors, and agents with <code>@</code>-mentions.</p>
-    <h2>Using @-mentions</h2>
-    <p>Placeholder: type <code>@</code> to pull in a connector, tool, or agent mid-conversation.</p>
-    <div class="screenshot">[ Screenshot placeholder — the @-mention menu open in chat ]</div>
+    <p>Chat is the basic ChatGPT chat experience. The Business plan adds some additional features that let you do more with Chat than conversation alone.</p>
+    <img class="narrow" src="assets/chat_1.png" alt="A new chat screen: the Chat / Work toggle at the top with Chat selected, and the message box below with a plus button and the Instant selector.">
+    <p class="caption">When you start a new chat, make sure Chat is selected.</p>
+
+    <h2>When to use Chat</h2>
+    <p>Chat is for smaller tasks: quick questions, finding and summarizing emails or documents, drafting replies, brainstorming, et cetera. If a lot of your work is mainly administrative tasks, Chat may be nearly all you need.</p>
+    <p>If your work is heavier and long-running &mdash; e.g. analyzing data from many spreadsheets or synthesizing long texts using many sources &mdash; you'll spend more of your time in Work or Codex which are covered later in this guide.</p>
+    <p>That isn't to say that the models used for Chat are dumber than the Work/Codex models. Chat is still capable of tasks like research and analysis. The Work/Codex models are just configured with different tools and instructions more suited for those tasks.</p>
+
+    <h2>@-mentions</h2>
+    <p>Press the <code>+</code> button in the message box, or type <code>@</code>, to open a menu of available tools. From there you can reach for a tool like the image generator, tag a <a href="connectors.html">connector</a>, or route your prompt to a specialized <a href="agents.html">agent</a>.</p>
+    <img class="narrow" src="assets/chat_2.png" alt="The chat message box with the tool menu open, listing tools such as Create image, Web search, Company knowledge, Deep research, Gmail, and Canva.">
+    <p class="caption">Open the tool menu with the <code>+</code> button or by typing <code>@</code>.</p>
     <div class="try-it">
       <h3>Try it yourself</h3>
-      <p>Start a chat and summon a tool with an @-mention.</p>
       <p>Ask ChatGPT:</p>
-      <p><em>&ldquo;@Presentations turn these notes into a 5-slide overview&rdquo;</em></p>
-      <p><strong>Expected outcome:</strong> ChatGPT pulls in the Presentations tool and drafts slides.</p>
+      <p><em>&ldquo;@Presentations make me a 3-slide overview on good email etiquette&rdquo;</em></p>
+      <p><strong>Expected outcome:</strong> the <code>@</code> pulls in the Presentations tool, and ChatGPT uses it to create the requested slideshow.</p>
     </div>
-
-    <h2>Want an app instead of a browser tab?</h2>
-    <p>You can use everything in this guide right in your browser &mdash; that's the simplest way to start, and the rest of the guide assumes it. There's also a desktop app if you'd rather have ChatGPT in its own window. It's a bit more involved, so it has its own page: see <a href="desktop-app.html">Desktop App</a>.</p>
+    <p>You don't always have to tag a tool. ChatGPT can see which ones are available and will often reach for the right one on its own. For example, asking &ldquo;generate an image of a dog&rdquo; usually fires up the image tool with no tag at all. Tagging mainly makes answers faster and more reliable; a few tools also won't run unless you tag them, so it's good practice to tag.</p>
   </main>
 </div>
 <script src="app.js" defer></script>
