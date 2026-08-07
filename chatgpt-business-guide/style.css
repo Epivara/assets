@@ -189,9 +189,12 @@ a:hover { text-decoration: underline; }
   transform: rotate(90deg);           /* open: points down */
   transition: transform 0.15s ease;
 }
-/* Closed state is applied pre-paint on <html> (mirrors the theme toggle). */
-:root[data-plugins="closed"] .nav-caret .caret { transform: rotate(0deg); }  /* points right */
-:root[data-plugins="closed"] .sidebar nav .has-children > ul { display: none; }
+/* Closed state is applied pre-paint on <html> (mirrors the theme toggle), scoped
+   per submenu so parents collapse independently. */
+:root[data-plugins="closed"] .submenu-plugins .nav-caret .caret { transform: rotate(0deg); }  /* points right */
+:root[data-plugins="closed"] .submenu-plugins > ul { display: none; }
+:root[data-desktop="closed"] .submenu-desktop .nav-caret .caret { transform: rotate(0deg); }
+:root[data-desktop="closed"] .submenu-desktop > ul { display: none; }
 
 /* Content */
 .content {
@@ -205,6 +208,20 @@ a:hover { text-decoration: underline; }
 .content h2 { font-size: 1.4rem; margin-top: 2em; border-bottom: 1px solid var(--border); padding-bottom: 4px; }
 .content h3 { font-size: 1.15rem; margin-top: 1.6em; }
 
+/* Header with an inline image (e.g. a plugin-catalog chip beside the h2).
+   Wrapper carries the h2's border + top margin; wraps the image below on narrow screens. */
+.content .h2-media {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+.content .h2-media h2 { margin: 0; border: none; padding: 0; }
+.content .h2-media img { margin: 0 0 2px; max-height: 39px; width: auto; }
+
 .content img {
   max-width: 100%;
   height: auto;
@@ -215,6 +232,7 @@ a:hover { text-decoration: underline; }
 }
 
 .content img.narrow { max-width: min(420px, 100%); }
+.content img.medium { max-width: min(600px, 100%); }
 
 .content .caption {
   margin: -8px 0 24px;
@@ -222,6 +240,8 @@ a:hover { text-decoration: underline; }
   font-size: 0.85rem;
   color: var(--muted);
 }
+
+.content .muted { color: var(--muted); font-weight: 400; font-size: 0.8em; }
 
 .content code {
   background: var(--bg-soft);
@@ -232,6 +252,26 @@ a:hover { text-decoration: underline; }
 
 .content ul, .content ol { padding-left: 22px; }
 .content li { margin: 4px 0; }
+/* Tighten a list that reads as a continuation of its lead-in paragraph */
+.content p + ul, .content p + ol { margin-top: -10px; }
+
+/* Comparison table */
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 0.95rem;
+}
+.content th, .content td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.content thead th {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
 
 /* Screenshot placeholder */
 .screenshot {
@@ -269,6 +309,8 @@ a:hover { text-decoration: underline; }
 .callout.tip .callout-label { color: #2e8b57; }
 .callout.warning { border-left-color: #c47f17; }
 .callout.warning .callout-label { color: #c47f17; }
+.callout.caution { border-left-color: #c0392b; }
+.callout.caution .callout-label { color: #c0392b; }
 
 /* Try it yourself */
 .try-it {
@@ -301,6 +343,8 @@ a:hover { text-decoration: underline; }
     width: 100%;
     min-width: 0;
     height: auto;
+    max-height: 45vh;
+    overflow-y: auto;
     border-right: none;
     border-bottom: 1px solid var(--border);
   }

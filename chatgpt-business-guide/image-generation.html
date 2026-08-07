@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -107,8 +120,17 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Image Generation</h1>
+    <h1>Image Generation - STUB</h1>
     <p>ChatGPT can generate images for slides, mockups, and marketing.</p>
+
+    <!-- DRAFT mental-model section — first crack at demystifying image gen for a
+         non-technical audience (they treat AI as real intelligence). Refine later. -->
+    <h2>What's actually happening</h2>
+    <p>When you ask for a picture, ChatGPT doesn't draw it itself. It hands your request off to a <strong>separate AI model</strong> built for one job: turning a text description into an image. That model learned by studying an enormous pile of images from the internet, so it's very good at producing something that <em>looks</em> right &mdash; but it's matching patterns it has seen before, not understanding what it's making.</p>
+    <p>This is why it struggles with anything specific to us. The image model has never seen Epivara. It has no idea what our logo looks like or how our name is spelled, so if you ask for either, it will confidently invent something close-but-wrong.</p>
+    <p>Handing it our real logo doesn't fix this the way you'd hope. ChatGPT doesn't &ldquo;see&rdquo; the picture and hold onto it &mdash; it writes itself a short text description of what's in it (something like &ldquo;a navy geometric shape next to the word Epivara&rdquo;) and passes those words to the image model. The image model then paints its best guess from that description. Whatever the words left out is simply gone, which is why the logo never comes back exactly right.</p>
+    <p>The short version: there's no real visual understanding here. It's a very capable guesser working from a text description, not a designer who knows our brand. Once you expect that, it behaves predictably &mdash; and it's exactly why the workflow below works.</p>
+
     <div class="callout warning">
       <span class="callout-label">Generate clean, then brand</span>
       Image generation makes up logos and company names and garbles exact text. The reliable workflow is: generate the imagery with <strong>no branding</strong>, then add your real logo and text afterward (by hand, or in whatever design tool you use). Don't ship AI-invented logos.

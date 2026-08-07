@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -108,11 +121,37 @@
 
   <main class="content" data-pagefind-body>
     <h1>Projects</h1>
-    <p>As the weeks go by, you'll rack up a lot of chats &mdash; and finding the one from last Tuesday gets old fast. A <strong>Project</strong> is a folder for related chats, files, and standing instructions, so everything for one client or workstream lives in one place. It's not something you need on day one; it starts earning its keep once you've got enough going on to bother organizing.</p>
-    <div class="screenshot">[ Screenshot placeholder — the Projects sidebar ]</div>
-    <div class="callout tip">
-      <span class="callout-label">Tip</span>
-      Use a Project per client or workstream so context and files stay together.
+    <p>A <strong>Project</strong> is a folder that groups related chats, files, and instructions in one place. Use them to organize your chats.</p>
+    <p>If you're working on a larger project that requires multiple chats, ChatGPT projects are a good way to group them and maintain a shared context.</p>
+
+    <h2>Creating a project</h2>
+    <p>Open the <strong>Projects</strong> page from the sidebar and press <strong>New</strong>.</p>
+    <img class="narrow" src="assets/projects_1.png" alt="The Create project dialog, with the memory dropdown showing Default memory and Project-only memory.">
+    <ul>
+      <li><strong>Default memory</strong> &mdash; the project draws from and adds to your personal account memory.</li>
+      <li><strong>Project-only memory</strong> &mdash; the project keeps a separate memory, walled off from other chats outside of the project.</li>
+    </ul>
+
+    <h2>Working inside a project</h2>
+    <p>Select a project from the <strong>Projects</strong> page to open that project's homepage.</p>
+    <img class="medium" src="assets/projects_2.png" alt="A project's home page, with a Chat and Work slider at the top and Share and options buttons.">
+    <p>From here, you can start a new chat directly. The slider at the top switches between a Chat and a Work conversation.</p>
+    <p>To move an existing chat into the project, find it in your recent chats, open its <code>&hellip;</code> menu, and choose <strong>Move to project</strong>.</p>
+
+    <h2>Project instructions</h2>
+    <p>On a project homepage, open the <code>&hellip;</code> menu, then <strong>Project settings</strong>. In the <strong>Instructions</strong> box, you can write project-level instructions. These instructions apply to all chats in the project.</p>
+    <p>For example, you may want to put things like: &ldquo;always check the pricing doc first&rdquo; or &ldquo;raise questions instead of assuming.&rdquo;</p>
+
+    <h2>Sources</h2>
+    <p>On a project homepage, the <strong>Sources</strong> tab lets you attach files specific to the project. Any chat in the project can reference them, so you don't re-upload the same documents each time.</p>
+
+    <h2>Sharing a project</h2>
+    <p>Press <strong>Share</strong> on the project's homepage to give others access to the project. They can see all chats and add their own. They can also edit project settings and sources if given permission.</p>
+    <p>Most importantly, any chats they start from the project will share the project instructions and sources, letting people share chat context.</p>
+    <div class="callout warning">
+      <span class="callout-label">Chats are individual</span>
+      <p>Shared project chats aren't exactly group chats. Projects are more just for organizing chats and managing a universal context that supports multiple chats.</p>
+      <p>The real benefit is that a teammate joining the project doesn't have to prime their own ChatGPT from scratch &mdash; the instructions and sources are already set up for them.</p>
     </div>
   </main>
 </div>

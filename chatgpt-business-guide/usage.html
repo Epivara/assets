@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -107,7 +120,7 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Usage</h1>
+    <h1>Usage - STUB</h1>
     <p>ChatGPT is powerful, but it isn't all unlimited &mdash; some of it is metered. This page explains, in plain terms, how that works so nothing catches you off guard.</p>
 
     <h2>What's a token?</h2>
@@ -132,6 +145,16 @@
     <h2>It adds up faster than you'd expect</h2>
     <p>It's worth knowing how quickly heavy use can add up. A single involved Work or Codex session &mdash; say, grinding through a long document over and over &mdash; can get through a surprising amount in a short time. You won't run up a bill by accident, but the weekly limit is real, so pacing yourself on big tasks keeps you from hitting the wall in the middle of a project.</p>
     <p>Placeholder: a rough sense of token pricing, to make the cost tangible (confirm figures before publishing).</p>
+
+    <h2>How hard it thinks changes the cost</h2>
+    <p>Note / placeholder: the <a href="intelligence.html">model and thinking-level selector</a> is one of the biggest levers on how fast you burn the weekly limit &mdash; a higher-effort setting does more work per request and costs more, while a lighter one stretches further. TODO: how to match the level to the task so you're not spending a heavy setting on a simple job.</p>
+
+    <h2>Usage resets</h2>
+    <p>Note / placeholder: every so often ChatGPT offers a <strong>one-time usage reset</strong> that tops your weekly Work / Codex limit back up before the normal weekly reset. TODO: what prompts the offer, where it shows up, and how to claim it.</p>
+
+    <h2>File storage</h2>
+    <p>Note / placeholder: there's also a limit on how much you can store in ChatGPT from uploading files. Once you reach it, you have to delete old files before you can add more. TODO: the actual limit, how to check what you're using, and where to clear files out.</p>
+    <p>COMPACTION</p>
   </main>
 </div>
 <script src="app.js" defer></script>

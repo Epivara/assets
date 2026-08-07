@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deep Research — ChatGPT Business Guide</title>
+<title>Desktop Plugins — ChatGPT Business Guide</title>
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
@@ -120,13 +120,54 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Deep Research - STUB</h1>
-    <p>Deep Research runs a longer, multi-source investigation and returns a cited write-up. Use it when a quick answer is not enough.</p>
-    <div class="screenshot">[ Screenshot placeholder — a Deep Research report in progress ]</div>
-    <div class="callout tip">
-      <span class="callout-label">When to use it</span>
-      Reach for Deep Research when you need a thorough, sourced answer &mdash; not for quick lookups, which normal chat handles faster.
+    <h1>Desktop Plugins</h1>
+    <p>The web and desktop apps share the same public plugin directory, so most plugins you've used before should be accessible in the desktop app too.</p>
+    <p>The desktop app also adds a few exclusive tools that work directly with your computer, some of which are listed below.</p>
+    <p>These plugins can be installed from the <strong>Plugins</strong> catalog accessed from the sidebar.</p>
+    <p>Because these plugins interact with your computer, <strong>they are all exclusive to Work or Codex</strong>.</p>
+    <div class="callout warning">
+      <span class="callout-label">Heads up</span>
+      <p>These desktop tools are still emerging. They can be useful, but they may work much more slowly than a person or get stuck on simple interface changes. They are more of a novelty at the moment, but you may find some use for them.</p>
     </div>
+
+    <div class="h2-media">
+      <h2>Computer Use</h2>
+      <img src="assets/desktop_plugins_1.png" alt="The Computer Use entry in the Plugins catalog, labeled &ldquo;Control apps from ChatGPT.&rdquo;">
+    </div>
+    <p>Lets ChatGPT see and operate apps on your computer. It can click buttons, type, navigate menus, and move between apps much as you would.</p>
+    <p>It's most useful for apps that provide no specialized way for ChatGPT to interact — the only way in is the same screen, buttons, and menus a person uses.</p>
+    <p>If a tool already has a plugin, that route is usually faster and more reliable; Computer Use is for everything that doesn't.</p>
+
+    <div class="try-it">
+      <h3>Try it yourself</h3>
+      <p>Tag the plugin with <code>@</code> and give it a simple task:</p>
+      <p><em>&ldquo;@Computer open the Calculator app and type 123.&rdquo;</em></p>
+      <p><strong>Expected outcome:</strong> it opens Calculator and clicks in the digits.</p>
+    </div>
+
+    <div class="h2-media">
+      <h2>Chrome</h2>
+      <img src="assets/desktop_plugins_2.png" alt="The Chrome entry in the Plugins catalog, labeled &ldquo;Control Chrome with ChatGPT.&rdquo;">
+    </div>
+    <p>Lets ChatGPT work in your Google Chrome browser. The Chrome plugin lets ChatGPT operate Chrome for you, navigating websites, filling things in, and clicking through websites.</p>
+    <p>Using it also requires installing the ChatGPT Chrome extension in Chrome itself.</p>
+    <p>The plugin is built specifically for Chrome, so it's usually the better choice over Computer Use for browser work.</p>
+
+    <div class="h2-media">
+      <h2>Browser</h2>
+      <img src="assets/desktop_plugins_3.png" alt="The Browser entry in the Plugins catalog, labeled &ldquo;Control the in-app browser with ChatGPT.&rdquo;">
+    </div>
+    <p>Opens a separate web browser inside the ChatGPT desktop app that ChatGPT can work in. This browser has its own history and sign-ins, separate from your regular browser.</p>
+    <p>If you plan on using the Chrome plugin, this feature is mostly redundant, unless you want an isolated browser.</p>
+    <p>This tool is part of ChatGPT by default, no install required.</p>
+
+    <div class="h2-media">
+      <h2>Record &amp; Replay <span class="muted">(Mac only)</span></h2>
+      <img src="assets/desktop_plugins_4.png" alt="The Record &amp; Replay entry in the Plugins catalog, labeled &ldquo;Record what I'm doing on my Mac.&rdquo;">
+    </div>
+    <p>When you activate Record & Replay, ChatGPT will record your screen as you do a task. Once you finish the recording, ChatGPT will try to turn the process into a reusable <a href="skills.html">skill</a>.</p>
+    <p>Show ChatGPT how you perform a repeatable task, such as downloading a monthly report or filing an expense. After that, just use the skill, and ChatGPT will repeat the steps. You essentially create smarter macros.
+    <p>Computer Use must be enabled to use this feature.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

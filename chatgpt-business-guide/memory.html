@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -108,17 +121,20 @@
 
   <main class="content" data-pagefind-body>
     <h1>Memory</h1>
-    <p>ChatGPT can remember things about you from one conversation to the next &mdash; who you are, what you're working on, and how you like things done &mdash; so you don't have to re-explain yourself every time. It builds this up quietly as you chat, and you stay in control of it.</p>
-
-    <h2>What it remembers</h2>
-    <p>Placeholder: as you use it, ChatGPT saves small notes about you &mdash; your role, projects you bring up often, preferences you state (&ldquo;keep replies short,&rdquo; &ldquo;always use metric&rdquo;), and other recurring details &mdash; then leans on them in later chats without being asked.</p>
+    <p>ChatGPT has "memory" and remembers details about you &mdash; who you are, what you're working on, and how you like things done &mdash; so you don't always have to re-explain yourself in every new chat.</p>
+    <p>Early on, ChatGPT may not always work the way you expect. It will make annoying assumptions or may choose the wrong approach to a problem, requiring you to correct it. Over time, it compiles memories, helping reduce these friction points by learning your preferences and recurring context, making future interactions faster, more accurate, and better aligned with how you work.</p>
 
     <h2>Managing your memory</h2>
-    <p>Placeholder: you're not stuck with whatever it decides to keep. In <strong>Settings</strong> you can see everything ChatGPT has remembered, edit or delete individual memories, or turn memory off entirely. If it ever picks up something wrong or out of date, this is where you fix it.</p>
-    <div class="screenshot">[ Screenshot placeholder — the Memory settings screen ]</div>
+    <p>As you chat, ChatGPT updates memory automatically, saving details it considers important.</p>
+    <p>If you'd like to make sure ChatGPT remembers something, you can always tell ChatGPT, "Save this to your memory."</p>
+    <p>Alternatively, you can manage what's in ChatGPT's memory bank directly by navigating to the <strong>Personalization</strong> page in <strong>Settings</strong>.</p>
+    <img class="narrow" src="assets/memory_1.png" alt="The Personalization settings page, with an arrow pointing at the Manage button next to the memory summary.">
 
-    <h2>It gets better the more you use it</h2>
-    <p>Early on, ChatGPT can feel a little janky &mdash; it assumes things, or takes a roundabout path to what you actually wanted. That's normal at the start. Memory, together with clear prompting, is how you steer it: correct it once, tell it how you'd prefer things done, and it carries that forward. Building up memory is gradual, so it can seem like a novelty at first &mdash; but the more you use it, the more it shapes itself around how you actually work.</p>
+    <h2>Temporary Chat</h2>
+    <p>Sometimes you may want to chat about something, but don't want details from this chat to be saved to memory. Or maybe you want a fresh, less biased opinion. ChatGPT offers a feature for this: <strong>Temporary Chat</strong>.</p>
+    <img class="narrow" src="assets/memory_2.png" alt="An arrow pointing at the temporary chat button in the top-right corner of the chat window.">
+    <p class="caption">Start a temporary chat using the button in the top right.</p>
+    <p>ChatGPT does not store any long-term memories from temporary chats. It also has no access to your existing memory, so each temporary chat starts from a clean slate.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

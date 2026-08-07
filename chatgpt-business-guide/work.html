@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -108,21 +121,41 @@
 
   <main class="content" data-pagefind-body>
     <h1>Work</h1>
-    <p>Work is the mode for heavier, longer-running jobs &mdash; the kind that take many steps and lean on a lot of source material. Where <a href="chat.html">Chat</a> is for quick, back-and-forth tasks, Work is where you'd hand off something like &ldquo;go through these twelve spreadsheets and pull the numbers into one summary&rdquo; and let it grind.</p>
+    <p>A lot of work can be done in Chat, like making presentations, researching a topic, or even writing up longer documents with sources. But, at some point, a task can be big enough where Chat becomes less suited for the job. Thus, ChatGPT offers an alternate chat option, Work.</p>
+    <p>Work is the mode for heavier, longer-running jobs; the kind that take many steps and lean on a lot of source material.</p>
+    <p>Work is where you'd hand off something like &ldquo;go through these twelve spreadsheets and pull the numbers into one summary&rdquo; and let it grind.</p>
 
-    <div class="callout warning">
-      <span class="callout-label">Heads-up on limits</span>
-      Work draws on a separate weekly usage limit that it shares with Codex &mdash; it's not unlimited the way Chat is. Before you lean on it heavily, read <a href="usage.html">Usage</a> so you know what you're spending.
+    <img class="narrow" src="assets/work_1.png" alt="A new chat screen: the Chat / Work toggle at the top with Work selected, and the message box below with a plus button and the Instant selector.">
+    <p class="caption">When you start a new chat, make sure Work is selected.</p>
+
+    <h2>When to choose Work over Chat</h2>
+    <p>Chat and Work share the same underlying capabilities. The difference is follow-through. Instead of fitting everything into one reply, Work carries out a sequence of steps &mdash; e.g. searching sources, reading documents, comparing findings, generating files, and revising them &mdash; and keeps going until the task is actually done.</p>
+    <p>You can even stop a Work response midway to add a requirement or change direction, and it'll continue to work smoothly. This is because Work plans out an overall goal and tackles it step by step. Interrupting just makes it adjust course, keeping whatever earlier work still applies. Chat is less accommodating: it generates one response at a time, and cutting in essentially restarts the work.</p>
+    <p>Work is more focused on doing a job <em>right</em> rather than just producing a result. ChatGPT is more likely to do extra, optional work of its own volition, like cross-checking figures, flagging inconsistencies, or checking its work. It does things that a quick Chat reply tends to skip unless explicitly requested.</p>
+    <p>That makes Work the better choice when a task is too big or too involved to really tackle effectively in a Chat.</p>
+    <table>
+      <thead>
+        <tr><th>Use Chat when&hellip;</th><th>Use Work when&hellip;</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>You mainly want information or conversation.</td><td>You mainly want a larger task completed.</td></tr>
+        <tr><td>The task is only a few steps.</td><td>The task involves many steps or many files.</td></tr>
+        <tr><td>A good-enough answer will do.</td><td>You want a problem tackled thoroughly.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout caution">
+      <span class="callout-label">Fully autonomous work</span>
+      <p>Work mode was designed for letting ChatGPT do long jobs nearly autonomously. By default, ChatGPT has a strong drive to take a job to completion, unilaterally making possibly significant decisions. It tends to resolve uncertainties on its own by making plausible assumptions, or sometimes just skirting the snag entirely.</p>
+      <p>This is great if your desired workflow is to give high-level details at the start then let ChatGPT autonomously "one-shot" the result, making all the small decisions.</p>
+      <p>However, if your work is detail-oriented, handing over all those decisions can produce a polished-looking result that quietly hides its own mistakes. Proofreading can end up costing more effort than working through the task step by step with your own oversight would have.</p>
+      <p>To avoid that, you can set custom instructions telling ChatGPT to check with you before making significant decisions (you'll have to spell out what counts as significant), or work with it iteratively, tackling small chunks at a time and reviewing each chunk of work as you go.</p>
     </div>
 
-    <h2>When to reach for Work</h2>
-    <p>Placeholder: the plain-English &ldquo;is this a Work job or a Chat job?&rdquo; test &mdash; data-heavy, multi-step, or long-running work that would be tedious to babysit turn-by-turn in Chat.</p>
-
-    <h2>Web vs. desktop</h2>
-    <p>Placeholder: Work runs in your browser, so you don't need the app for it. The one thing the <a href="desktop-app.html">desktop app</a> adds is reaching files on your own computer &mdash; if your job doesn't need local files, the web is fine.</p>
-
-    <h2>Work vs. Codex</h2>
-    <p>Placeholder: the plain difference between Work and Codex, and which one a normal office user (not a developer) would pick.</p>
+    <div class="callout warning">
+      <span class="callout-label">Usage limits</span>
+      Work draws on a separate weekly usage limit; it's not unlimited the way Chat is. Read <a href="usage.html">Usage</a> to learn more.
+    </div>
   </main>
 </div>
 <script src="app.js" defer></script>

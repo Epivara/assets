@@ -18,27 +18,36 @@
   }
 })();
 
-// --- Plugins submenu collapse (open/closed state applied pre-paint in <head>) ---
+// --- Collapsible submenus (open/closed state applied pre-paint in <head>) ---
+// Each parent's caret carries data-submenu="<key>"; state lives on <html> as
+// data-<key> and persists in localStorage['cbg-<key>']. One handler per caret,
+// so any number of collapsible parents (Plugins, Desktop App, ...) work.
 (function () {
-  var KEY = "cbg-plugins";
   var d = document.documentElement;
-  var btn = document.querySelector(".nav-caret");
-  if (!btn) return;
-  function sync() {
-    btn.setAttribute("aria-expanded", d.getAttribute("data-plugins") === "closed" ? "false" : "true");
+  var carets = document.querySelectorAll(".nav-caret");
+  for (var i = 0; i < carets.length; i++) {
+    (function (btn) {
+      var key = btn.getAttribute("data-submenu");
+      if (!key) return;
+      var attr = "data-" + key;
+      var store = "cbg-" + key;
+      function sync() {
+        btn.setAttribute("aria-expanded", d.getAttribute(attr) === "closed" ? "false" : "true");
+      }
+      sync();
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (d.getAttribute(attr) === "closed") {
+          d.removeAttribute(attr);
+          try { localStorage.setItem(store, "open"); } catch (e) {}
+        } else {
+          d.setAttribute(attr, "closed");
+          try { localStorage.setItem(store, "closed"); } catch (e) {}
+        }
+        sync();
+      });
+    })(carets[i]);
   }
-  sync();
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (d.getAttribute("data-plugins") === "closed") {
-      d.removeAttribute("data-plugins");
-      try { localStorage.setItem(KEY, "open"); } catch (e) {}
-    } else {
-      d.setAttribute("data-plugins", "closed");
-      try { localStorage.setItem(KEY, "closed"); } catch (e) {}
-    }
-    sync();
-  });
 })();
 
 // --- Highlight the current page in the sidebar ---

@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -108,31 +121,61 @@
 
   <main class="content" data-pagefind-body>
     <h1>Desktop App</h1>
-    <p>Everything in this guide works in your browser, so you never <em>need</em> the desktop app. But if you'd rather have ChatGPT in its own window &mdash; always a click away, no browser tab to lose &mdash; there's an app for Mac and Windows.</p>
+    <p>Everything in this guide so far works in your browser. For some, the web app provides all the functions they'll ever need. For those who want to go further, there's the desktop app.</p>
 
     <div class="callout warning">
-      <span class="callout-label">A little heads-up</span>
-      The desktop app grew out of a developer tool (Codex), and you can still feel those roots. It's being smoothed out for everyday use, but it has a bit more of a learning curve than the website &mdash; a few different modes, and some things billed separately. If you just want to get going, start in the browser and come back to this later.
+      <span class="callout-label">Heads up</span>
+      <p>The desktop app is actively in development. Features and layouts are constantly changing, so parts of this guide may not look familiar. That said, the core workflow should be the same.</p>
+      <p>Known limitations:</p>
+      <ul>
+        <li><strong>Projects</strong> don't sync between the web and desktop app at the moment.</li>
+        <li>Workspace agents are a web app exclusive, at the moment they are not accessible in the desktop app.</li>
+        <li>Chats can't be deleted directly in the app. To delete a chat, <strong>Archive</strong> it, then delete it from <strong>Settings &rarr; Archived chats</strong>.</li>
+        <li><strong>Sites</strong> is available on the desktop but hidden on the web.</li>
+      </ul>
     </div>
 
-    <h2>Installing it</h2>
-    <p>Placeholder: where to download the Mac / Windows app and how to sign in with your Epivara account.</p>
-    <div class="screenshot">[ Screenshot placeholder — desktop app sign-in ]</div>
+    <h2>Installation</h2>
+    <p>Download the app from <a href="https://chatgpt.com/download/">chatgpt.com/download</a>. In the app, sign in with your business account.</p>
+    <img class="narrow" src="assets/desktop_app_1.png" alt="The workspace selection prompt in the browser after signing in, listing your personal account and the Epivara company workspace to choose from.">
+    <p class="caption">Make sure to select the company workspace for access to Business features.</p>
 
-    <h2>Chat vs. Work vs. Codex</h2>
-    <p>The app has more than one mode, and they don't all behave like the website:</p>
-    <ul>
-      <li><strong>Chat</strong> here is basically the same chat as the web, with one nicety: a <strong>companion window</strong> you can pop open over whatever you're working on with a keyboard shortcut, ask something, and dismiss. One catch &mdash; the <a href="agents.html">agents</a> you build in the web workspace don't come along; they only work on the web.</li>
-      <li><strong>Work</strong> and <strong>Codex</strong> are the real reason to install the app. These are the modes that can reach your <strong>local files</strong> and grind through longer, multi-step jobs. They also draw down the separate weekly limit &mdash; see <a href="usage.html">Usage</a>.</li>
+    <h2>What it offers</h2>
+    <p>The desktop app is largely the same as the web app, offering Chat, Work, plugins, and the like. However, the app also adds local file access and a few desktop-only tools that can change how you work.</p>
+    <p>The main reason you'd want the desktop app is the local file access. ChatGPT on the web can only work on the files you've uploaded, and uploading many files can be a tedious task. With the desktop app, ChatGPT can directly access and work on the files on your computer, cutting out the tedium.</p>
+    <p>The app also offers <strong>Codex</strong>, which is essentially the same thing as Work mode, except it is optimized for software development. You can change between ChatGPT and Codex in the top left.</p>
+
+    <div class="callout warning">
+      <span class="callout-label">File access</span>
+      <p>Note that ChatGPT can only access your local files in Work or Codex mode, not Chat!</p>
+    </div>
+
+    <div class="callout warning">
+      <span class="callout-label">Usage limits</span>
+      Work and Codex share a separate weekly usage limit, which, unlike Chat, isn't unlimited. Read <a href="usage.html">Usage</a> to learn more.
+    </div>
+
+    <div class="try-it">
+      <h3>Try it yourself</h3>
+      <p>No need to upload files or attach a folder manually. In a Work or Codex chat, ask:</p>
+      <p><em>&ldquo;Search the files you can access on my computer for <strong>[a rough description here]</strong>. Tell me what you find and where it is.&rdquo;</em></p>
+      <p><strong>Expected outcome:</strong> it runs searches across your computer, finds a file/folder, and reports back.</p>
+    </div>
+
+    <h2>Desktop-only features</h2>
+    <p>Some other notable desktop-only features are covered on separate pages:</p>
+    <ul class="card-list">
+      <li><a href="permissions.html"><span class="title">Permissions</span></a></li>
+      <li><a href="plan-mode.html"><span class="title">Plan Mode &amp; Goals</span></a></li>
+      <li><a href="desktop-plugins.html"><span class="title">Desktop Plugins</span></a></li>
+      <li><a href="sites.html"><span class="title">Sites</span></a></li>
     </ul>
-    <p>Placeholder: firm up the plain-English difference between Work and Codex, and which one a normal office user would reach for.</p>
 
-    <h2>Is it worth it for you?</h2>
-    <p>For most people, honestly, no. If you're chatting, drafting, and using plugins, the <strong>web</strong> is the better home &mdash; it has your workspace agents and is easier to get around. The desktop app earns its place when you have <strong>serious, long-running work that needs your local files</strong>, which is Work and Codex territory. If that's not you, you're not missing anything by staying in the browser.</p>
-    <div class="callout tip">
-      <span class="callout-label">One genuinely desktop-only trick</span>
-      Paired with <a href="voice-mode.html">Voice</a>, the desktop app (especially on Mac) can see your on-screen window for context and help you through what you're doing live. Handy in the moment, but it's a Voice / Work feature rather than something plain chat needs &mdash; and these desktop capabilities move quickly, so confirm before leaning on any specific one.
-    </div>
+
+    <h2>Platform exclusive chats</h2>
+    <p>Work chats started on the desktop app have access to computer files. Meanwhile, Work chats started on the web app do not.</p>
+    <p>ChatGPT keeps these separate intentionally. If you start a Work chat in the web app, you will be unable to continue the conversation on the desktop app, though you will be able to read it.</p>
+    <p>Meanwhile, Work chats started in the desktop app will not be accessible at all in the web app. Codex is exclusive to the desktop app, so the same applies.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

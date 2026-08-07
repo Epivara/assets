@@ -7,7 +7,7 @@
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||''),c=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(c.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -38,10 +38,10 @@
         <ul>
           <li><a href="signing-in.html">Signing In</a></li>
           <li><a href="chat.html">Chat</a></li>
-          <li class="has-children">
+          <li class="has-children submenu-plugins">
             <div class="nav-parent">
               <a href="plugins.html">Plugins</a>
-              <button class="nav-caret" type="button" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+              <button class="nav-caret" type="button" data-submenu="plugins" aria-label="Toggle Plugins submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
             </div>
             <ul>
               <li><a href="gmail.html">Gmail</a></li>
@@ -83,9 +83,20 @@
           <span class="nav-section-title">Going Further</span>
         </div>
         <ul>
-          <li><a href="projects.html">Projects</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="desktop-app.html">Desktop App</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li class="has-children submenu-desktop">
+            <div class="nav-parent">
+              <a href="desktop-app.html">Desktop App</a>
+              <button class="nav-caret" type="button" data-submenu="desktop" aria-label="Toggle Desktop App submenu" aria-expanded="true"><span class="caret">&#9654;&#65038;</span></button>
+            </div>
+            <ul>
+              <li><a href="permissions.html">Permissions</a></li>
+              <li><a href="plan-mode.html">Plan Mode &amp; Goals</a></li>
+              <li><a href="desktop-plugins.html">Desktop Plugins</a></li>
+              <li><a href="sites.html">Sites</a></li>
+            </ul>
+          </li>
           <li><a href="voice-mode.html">Voice Mode</a></li>
         </ul>
       </div>
@@ -98,6 +109,8 @@
         <ul>
           <li><a href="usage.html">Usage</a></li>
           <li><a href="intelligence.html">Intelligence</a></li>
+          <li><a href="what-its-doing.html">What It's Doing</a></li>
+          <li><a href="cognitive-offloading.html">Cognitive Offloading</a></li>
           <li><a href="best-practices.html">Best Practices</a></li>
         </ul>
       </div>
@@ -108,18 +121,26 @@
 
   <main class="content" data-pagefind-body>
     <h1>Skills</h1>
-    <p>A skill is a saved procedure. Instead of spelling out the same steps every time you want something done, you teach ChatGPT the steps once &mdash; then it can run that skill on demand, and you just ask for it by name.</p>
-    <p>Think of it as the lightest rung of automation: you're not building a whole assistant, just locking in one repeatable task so you stop re-explaining it. Once you've done something enough times that describing it from scratch again feels like a chore, it's a good candidate for a skill.</p>
+    <p>A skill is a saved procedure &mdash; a set of instructions that structures how ChatGPT handles a particular kind of task.</p>
+    <p>If you've ever asked ChatGPT to do a task with specific steps more than once, to the point where writing the prompt from scratch feels like a chore, it's a good candidate for a skill.</p>
+    <p>Instead of spelling out the same steps every time, you capture them once. Skills are great for when you want ChatGPT to follow a specific order, rules, or use certain tools.</p>
 
-    <h2>When a skill makes sense</h2>
-    <p>Placeholder: the tell is repetition &mdash; any multi-step task you keep re-describing the same way (formatting a report to a house style, turning rough notes into a standard summary, prepping a weekly update). Do it by hand a few times first so you actually know the steps, then capture them as a skill.</p>
+    <h2>Creating a skill</h2>
+    <p>A skill is literally just an instruction set, additional files, and a description to help ChatGPT figure out when to use it.</p>
+    <p>You can manage skills by opening the <strong>Plugins</strong> page in the sidebar, then selecting the <strong>Skills</strong> tab.</p>
+    <img class="medium" src="assets/skills_1.png" alt="The Skills tab open in ChatGPT, with an arrow labeled 1 on the Plugins page in the sidebar and an arrow labeled 2 on the Skills tab.">
+    <p class="caption">Open <strong>Plugins</strong> in the sidebar (1), then the <strong>Skills</strong> tab (2).</p>
+    <p>Create a skill by pressing the <code>+</code> button. It is recommended to create a skill via &ldquo;Create with chat,&rdquo; but you can also make one manually.</p>
+    <p>If you choose to create a skill manually, you must provide:</p>
+    <ul>
+      <li>A name and description that help ChatGPT figure out when to use the skill.</li>
+      <li>Skill instructions detailing the workflow, rules, and attached files.</li>
+      <li>Any files you want ChatGPT to reference when the skill is used.</li>
+    </ul>
 
-    <h2>Creating one</h2>
-    <p>Placeholder: where skills live and how you save one.</p>
-    <div class="screenshot">[ Screenshot placeholder — creating a skill ]</div>
-
-    <h2>Skills vs. agents</h2>
-    <p>A skill captures one procedure; an <a href="agents.html">agent</a> is a fuller setup &mdash; a configured assistant that carries its own knowledge and tools, and can even lean on skills to get work done. Reach for a skill when you just want one task made repeatable, and an agent when you want something that handles a whole role. Once either is set up, a <a href="scheduled-tasks.html">scheduled task</a> can run it on a cadence.</p>
+    <h2>Using a skill</h2>
+    <p>In a chat, use the <code>+</code> symbol or type <code>@</code> and search for the skill you want to use.</p>
+    <p>Alternatively, if your skill is named and described aptly, ChatGPT will use its own judgement to find and use the skill automatically.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

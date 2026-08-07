@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deep Research — ChatGPT Business Guide</title>
+<title>Permissions — ChatGPT Business Guide</title>
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
@@ -120,13 +120,33 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Deep Research - STUB</h1>
-    <p>Deep Research runs a longer, multi-source investigation and returns a cited write-up. Use it when a quick answer is not enough.</p>
-    <div class="screenshot">[ Screenshot placeholder — a Deep Research report in progress ]</div>
-    <div class="callout tip">
-      <span class="callout-label">When to use it</span>
-      Reach for Deep Research when you need a thorough, sourced answer &mdash; not for quick lookups, which normal chat handles faster.
-    </div>
+    <h1>Permissions</h1>
+    <p>Because Work and Codex can touch the files on your computer, ChatGPT lets you control when it needs permission to perform an action.</p>
+
+    <p>This setting is accessed in the chatbox. Choose the option which best fits your work.</p>
+    <img class="narrow" src="assets/permissions_1.png" alt="The approval menu opened from the chatbox, titled &ldquo;How should ChatGPT actions be approved?&rdquo; with three options: Ask for approval, Approve for me, and Full access.">
+
+    <h2>The three modes</h2>
+    <ul>
+      <li><strong>Ask for approval</strong> &mdash; the default, it stops for your okay before every file edit or internet request. The safest, but requires constant approval of requests.</li>
+      <li><strong>Approve for me</strong> &mdash; a separate model reads each request and decides whether it's safe to run. Only requires approval if an action is deemed potentially dangerous.</li>
+      <li><strong>Full access</strong> &mdash; ChatGPT's requests do not need approval. Requires the least management, but mistakes are possible.</li>
+    </ul>
+
+    <h2>Is Full access safe?</h2>
+    <p>For the most part, LLMs are smart enough and have comprehensive safety instructions, so catastrophic mistakes are rare.</p>
+    <p>That being said, minor mistakes happen on occasion, so Full access should be used with understanding of the risks.</p>
+    <p>When using Full access, some good practices include:</p>
+    <ul>
+      <li>Have ChatGPT do work on copies of files or in separate folders. "Sandbox" ChatGPT's work so mistakes are contained and the integrity of the original files is protected. Going further, have some kind of version control.</li>
+      <li>Periodically check in as ChatGPT is working. Sometimes you may catch ChatGPT going down rabbit holes searching for some files or chasing a dead end, in which case you can interrupt it and steer it.</li>
+      <li>Plan as much of the work out beforehand; unspecified requirements are usually the root of most mistakes.</li>
+      <li>You can always ask ChatGPT to undo its work as long as everything is still fully in context.</li>
+    </ul>
+
+    <h2>Turn on notifications</h2>
+    <p>Sometimes, ChatGPT takes extended time to think or do some work, so you won't always be watching it. If you have permissions set to require approval, you may want to have notifications enabled so ChatGPT can notify you when it is blocked.</p>
+    <p>Make sure that notifications are enabled both in ChatGPT's settings and for your operating system (Windows/Mac settings).</p>
   </main>
 </div>
 <script src="app.js" defer></script>
