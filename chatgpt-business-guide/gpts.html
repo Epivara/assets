@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Work — ChatGPT Business Guide</title>
+<title>GPTs — ChatGPT Business Guide</title>
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
@@ -121,42 +121,25 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Work</h1>
-    <p>A lot of work can be done in Chat, like making presentations, researching a topic, or even writing up longer documents with sources. But, at some point, a task can be big enough where Chat becomes less suited for the job. Thus, ChatGPT offers an alternate chat option, Work.</p>
-    <p>Work is the mode for heavier, longer-running jobs; the kind that take many steps and lean on a lot of source material.</p>
-    <p>Work is where you'd hand off something like &ldquo;go through these twelve spreadsheets and pull the numbers into one summary&rdquo; and let it grind.</p>
+    <h1>GPTs</h1>
+    <p>A <strong>GPT</strong> is a saved version of ChatGPT with its own instructions, files, and tools &mdash; the same idea as an <a href="agents.html">agent</a>. GPTs came first, and in OpenAI's words, &ldquo;Workspace agents are an evolution of GPTs.&rdquo;</p>
+    <p>So if you're setting something up for yourself, build an agent. This page is here so you know what the GPTs page in the sidebar is, and when a GPT is still the better pick.</p>
 
-    <img class="narrow" src="assets/work_1.png" alt="A new chat screen: the Chat / Work toggle at the top with Work selected, and the message box below with a plus button and the Instant selector.">
-    <p class="caption">When you start a new chat, make sure Work is selected.</p>
-
-    <h2>When to choose Work over Chat</h2>
-    <p>Chat and Work share the same underlying capabilities. The difference is follow-through. Instead of fitting everything into one reply, Work carries out a sequence of steps &mdash; e.g. searching sources, reading documents, comparing findings, generating files, and revising them &mdash; and keeps going until the task is actually done.</p>
-    <p>You can even stop a Work response midway to add a requirement or change direction, and it'll continue to work smoothly. This is because Work plans out an overall goal and tackles it step by step. Interrupting just makes it adjust course, keeping whatever earlier work still applies. Chat is less accommodating: it generates one response at a time, and cutting in essentially restarts the work.</p>
-    <p>Work is more focused on doing a job <em>right</em> rather than just producing a result. ChatGPT is more likely to do extra, optional work of its own volition, like cross-checking figures, flagging inconsistencies, or checking its work. It does things that a quick Chat reply tends to skip unless explicitly requested.</p>
-    <p>That makes Work the better choice when a task is too big or too involved to really tackle effectively in a Chat.</p>
-    <table>
-      <thead>
-        <tr><th>Use Chat when&hellip;</th><th>Use Work when&hellip;</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>You mainly want information or conversation.</td><td>You mainly want a larger task completed.</td></tr>
-        <tr><td>The task is only a few steps.</td><td>The task involves many steps or many files.</td></tr>
-        <tr><td>A good-enough answer will do.</td><td>You want a problem tackled thoroughly.</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout caution">
-      <span class="callout-label">Fully autonomous work</span>
-      <p>Work mode was designed for letting ChatGPT do long jobs nearly autonomously. By default, ChatGPT has a strong drive to take a job to completion, unilaterally making possibly significant decisions. It tends to resolve uncertainties on its own by making plausible assumptions, or sometimes just skirting the snag entirely.</p>
-      <p>This is great if your desired workflow is to give high-level details at the start then let ChatGPT autonomously "one-shot" the result, making all the small decisions.</p>
-      <p>However, if your work is detail-oriented, handing over all those decisions can produce a polished-looking result that quietly hides its own mistakes. Proofreading can end up costing more effort than working through the task step by step with your own oversight would have.</p>
-      <p>To avoid that, you can set custom instructions telling ChatGPT to check with you before making significant decisions (you'll have to spell out what counts as significant), or work with it iteratively, tackling small chunks at a time and reviewing each chunk of work as you go.</p>
-    </div>
-
+    <h2>How they differ</h2>
+    <p>An agent can go off and do work on its own, including on a schedule. A GPT only ever responds when you talk to it. Otherwise the two are much the same: instructions, files, and apps it can use.</p>
     <div class="callout warning">
-      <span class="callout-label">Usage limits</span>
-      Work draws on a separate weekly usage limit; it's not unlimited the way Chat is. Read <a href="usage.html">Usage</a> to learn more.
+      <span class="callout-label">GPTs don't use your memory</span>
+      <p>A GPT works only from its own setup. It has no access to ChatGPT's <a href="memory.html">memory</a> or to your other conversations, so anything it needs to know has to be in its instructions, its files, or the chat itself.</p>
     </div>
+
+    <h2>When a GPT is still the better pick</h2>
+    <ul>
+      <li><strong>You want to use it in the desktop app.</strong> Workspace agents can't be chatted with there, but GPTs can be tagged and used like normal.</li>
+      <li><strong>Someone already built one.</strong> If a GPT in the catalog already does what you need, there's nothing to set up.</li>
+    </ul>
+
+    <h2>Using GPTs</h2>
+    <p>On the web, open the <strong>GPTs</strong> page from the sidebar. From there, pick a GPT that someone else has already built, or create your own &mdash; setting one up works much the same as <a href="agents.html">creating an agent</a>.</p>
   </main>
 </div>
 <script src="app.js" defer></script>

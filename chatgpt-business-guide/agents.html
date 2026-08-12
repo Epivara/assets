@@ -74,6 +74,7 @@
         <ul>
           <li><a href="skills.html">Skills</a></li>
           <li><a href="agents.html">Agents</a></li>
+          <li><a href="gpts.html">GPTs</a></li>
           <li><a href="scheduled-tasks.html">Scheduled Tasks</a></li>
         </ul>
       </div>
@@ -120,13 +121,51 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Agents - STUB</h1>
-    <p>Agents are reusable, specialized assistants set up for a specific job.</p>
-    <div class="callout tip">
-      <span class="callout-label">Adopt, don't rebuild</span>
-      Agents are the shareable unit. Your team's existing agents live in the shared agent directory &mdash; grab those first instead of building your own from scratch.
+    <h1>Agents</h1>
+    <p>An <strong>agent</strong> is a reusable assistant that comes set up with context.</p>
+    <p>For ChatGPT to work well, you usually have to bring it up to speed: explain the background, attach the files it should reference, and lay out the rules you want it to follow. You have to share all this at the start of every new chat.</p>
+    <p>An agent saves that setup. It holds instructions, files, and the plugins and skills it's allowed to use, so all of it is loaded before you type your first message. No need to repeat yourself every time.</p>
+
+    <h2>Creating an agent</h2>
+    <p>Open the <strong>Agents</strong> page from the sidebar and press <strong>Create</strong>. Create an agent or start from a template.</p>
+    <p>If you're creating a new agent, you can describe what you want and let ChatGPT build the agent for you, or press <strong>Start blank</strong> in the top right to fill it in yourself.</p>
+    <p>At minimum, an agent needs a name and instructions to follow.</p>
+    <p>In your instructions, a list of things you might want to include are:
+    <ul>
+      <li>Rules for the agent to follow</li>
+      <li>Which skills and files to use</li>
+      <li>Any helpful context to help guide the agent</li>
+      <li>Anything else that answers the question: "What would I have to explain for ChatGPT to be useful for this agent's intended task?"</li>
+    </ul>
+
+    <p>From there you can add:</p>
+    <ul>
+      <li><strong>Apps</strong> &mdash; the plugins the agent can use.</li>
+      <li><strong>Skills</strong> &mdash; procedures you want it to know.</li>
+      <li><strong>Files</strong> &mdash; anything it should always have on hand.</li>
+    </ul>
+    <p>You can also open the <code>&hellip;</code> menu and choose <strong>Settings</strong> to set the agent's default model and thinking level. See <a href="intelligence.html">Intelligence</a> for more info.</p>
+
+    <h2>Using an agent</h2>
+    <p>The easiest way is to type <code>@</code> in a chat and pick the agent by name. You can also open the <strong>Agents</strong> page, select an agent, and start the conversation from the prompt box on its page.</p>
+
+    <div class="callout warning">
+      <span class="callout-label">Chat on the web only</span>
+      <p>At the moment, workspace agents are only accessible via Chat on the ChatGPT website. The desktop app has no access to workspace agents; if you'd like the custom agent experience on the app, see <a href="gpts.html">GPTs</a>.</p>
+      <p></p>
     </div>
-    <div class="screenshot">[ Screenshot placeholder — the shared agent directory ]</div>
+
+    <h2>Sharing agents</h2>
+    <p>On an agent's edit page, open the <code>&hellip;</code> menu and press <strong>Share</strong>. You can share the agent with specific people, or with everyone in the workspace.</p>
+    <p>Workspace-shared agents are usable by anyone in the workspace, and are accessible from the workspace directory on the <strong>Agents</strong> page. </p>
+    <img class="narrow" src="assets/agents_1.png" alt="The Agents page, with an arrow pointing at the workspace directory tab next to Recently used and Built by me.">
+    <p class="caption">Shared agents live in the workspace directory.</p>
+
+    <h2>Why agents exist</h2>
+    <p>Everything on this page so far, a custom <a href="gpts.html">GPT</a> can do just as well. What sets an agent apart is that it doesn't need you in the room. Automation is the real point of agents.</p>
+    <p>For example, a salesperson might use an agent in the following way:<br>A new lead comes in overnight. An agent could pick it up on its own, research the company, and have a summary waiting for the salesperson by morning. Nobody needed to manually start a chat and tell the agent to act.</p>
+    <p>You can start setting up automated actions with agent automations, covered on the <a href="scheduled-tasks.html">Scheduled Tasks</a> page.</p>
+    <p>If you'd rather have an agent run on a trigger than on a schedule, additional setup outside of ChatGPT is required. Talk to your workspace admin if you have such a workflow in mind.</p>
   </main>
 </div>
 <script src="app.js" defer></script>
