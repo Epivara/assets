@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scheduled Tasks — ChatGPT Business Guide</title>
+<title>Desktop Scheduling — ChatGPT Business Guide</title>
 <link rel="icon" href="../general/favicon.ico" sizes="any">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="pagefind/pagefind-ui.css">
-<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
+<script>(function(){try{var d=document.documentElement;if(localStorage.getItem('cbg-theme')==='dark')d.setAttribute('data-theme','dark');var p=(location.pathname.split('/').pop()||'');var pc=['plugins.html','gmail.html','dropbox.html','zoom.html','quickbooks.html'];if(pc.indexOf(p)===-1&&localStorage.getItem('cbg-plugins')==='closed')d.setAttribute('data-plugins','closed');var dc=['desktop-app.html','permissions.html','sites.html','desktop-plugins.html','plan-mode.html','desktop-scheduled-tasks.html'];if(dc.indexOf(p)===-1&&localStorage.getItem('cbg-desktop')==='closed')d.setAttribute('data-desktop','closed');}catch(e){}})();</script>
 </head>
 <body>
 <div class="layout">
@@ -122,33 +122,33 @@
   <!-- SIDEBAR:END -->
 
   <main class="content" data-pagefind-body>
-    <h1>Scheduled Tasks</h1>
-    <p>A scheduled task is a prompt that ChatGPT runs for you at a set time. Use one for work that repeats, such as preparing a Monday morning summary or checking for new information each afternoon.</p>
+    <h1>Desktop Scheduling</h1>
+    <p>The desktop app can manage the same cloud tasks as the web app, but it can also run tasks on your computer. Use a local task when ChatGPT needs files or a project that you have not uploaded.</p>
 
-    <h2>Creating a scheduled task</h2>
-    <p>Open <strong>Scheduled</strong> from the sidebar to open the Scheduled tasks page.</p>
-    <p>You can specify a task to use Chat or Work via the slider at the top. See the <a href="work.html">Work</a> page for details.</p>
-    <p>To create a task, use the chatbox to describe both what ChatGPT should do and when it should run.</p>
-    <p>For example:<br><em>&ldquo;Every Friday at 3:00 PM, find all emails received concerning FDA approval, and send me an email that summarizes anything that still needs a response.&rdquo;</em></p>
-    <p>ChatGPT will turn your request into a scheduled task. Once it appears on the Scheduled page, you can edit its title, prompt, schedule, and when it should stop repeating.</p>
+    <h2>Cloud or this device?</h2>
+    <ul>
+      <li><strong>Cloud</strong> &mdash; runs even when your computer is off. Tasks created on the web appear in the desktop app as cloud scheduled tasks.</li>
+      <li><strong>This device</strong> &mdash; can work with local files and projects, but the computer must be on with ChatGPT running when the task is due.</li>
+    </ul>
+    <p>Choose Cloud unless the task needs something stored on your computer.</p>
 
-    <div class="callout tip">
-      <span class="callout-label">Test the prompt first</span>
-      <p>You probably want to test and make sure the action works before relying on it.</p>
-      <p>You can run the task immediately by clicking on the scheduled task to open it in the sideview, finding the <code>&hellip;</code> menu, and choosing <strong>Run now</strong>. Or, copy the prompt and try it in a normal chat.</p>
+    <h2>Creating a local task</h2>
+    <p>Open <strong>Scheduled</strong> in the desktop app and create a task. Choose <strong>This device</strong>, then enter the prompt and schedule.</p>
+    <p>You can also choose:</p>
+    <ul>
+      <li>Whether each run continues an existing chat or starts a new one.</li>
+      <li>Which Project should hold a new chat.</li>
+      <li>The model and reasoning level.</li>
+      <li>Whether to receive important updates, failed-run notifications, or both.</li>
+    </ul>
+    <p>Cloud tasks use the simpler web setup, so most of these options only appear when <strong>This device</strong> is selected.</p>
+
+    <div class="callout warning">
+      <span class="callout-label">Local means local</span>
+      <p>If the computer is asleep, the app is closed, or the selected folder is unavailable, a local task cannot run as planned. Use a cloud task when you do not need local files.</p>
     </div>
 
-    <h2>Managing scheduled tasks</h2>
-    <p>Open the <strong>Scheduled</strong> page to review past runs or make changes. You can also pause a task without losing its setup, or delete it when you no longer need it.</p>
-    <p>By default, ChatGPT sends you an email and a push notification when a task finishes. The email includes a link to the result. You can change notification settings under <strong>Settings &rarr; Notifications &rarr; Tasks</strong>.</p>
-
-    <h2>Agent automations</h2>
-    <p>Scheduled tasks are handled by the regular ChatGPT. An <a href="agents.html">agent</a> can have its own scheduled tasks, called <strong>automations</strong>.</p>
-    <p>They work the same way, except the agent handles the prompt with its saved instructions, files, plugins, and skills.</p>
-    <p>Create an automation by navigating to an agent's edit page, then selecting automations in the top right.</p>
-    <img class="medium" src="assets/scheduled_tasks_1.png" alt="An agent's edit page with an arrow pointing to the Automations button in the top-right corner.">
-    <p>When agent automations run, the resulting chats stay in the agent's <strong>Activity</strong> page instead of taking up space in your general list of recent chats.</p>
-    <p>Automations are not included when sharing agents. Each person must set up their own automations for their copy.</p>
+    <p>For the basic workflow, including editing, pausing, and reviewing tasks, see <a href="scheduled-tasks.html">Scheduled Tasks</a>.</p>
   </main>
 </div>
 <script src="app.js" defer></script>
